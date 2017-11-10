@@ -1,3 +1,4 @@
 index.html
 build/*.js
 config/*.js
+src/services/smtp.js

@@ -6,8 +6,8 @@
     <spacer></spacer>
     <video-section></video-section>
     <spacer></spacer>
-    <contact-section></contact-section>
     <spacer></spacer>
+    <contact-section></contact-section>
     <footer-section></footer-section>
   </div>
 </template>
@@ -15,8 +15,8 @@
   import TopSection from '@/components/TopSection'
   import DocSection from '@/components/DocSection'
   import VideoSection from '@/components/VideoSection'
-  import ContactSection from '@/components/ContactSection'
   import FooterSection from '@/components/FooterSection'
+  import ContactSection from '@/components/ContactSection'
 
   import Spacer from '@/components/Spacer'
   export default {
@@ -25,8 +25,8 @@
       DocSection,
       Spacer,
       VideoSection,
-      ContactSection,
-      FooterSection
+      FooterSection,
+      ContactSection
     }
   }
 </script>
