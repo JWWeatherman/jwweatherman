@@ -1478,3 +1478,7 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   }
 }
 
+.rc-anchor-normal-footer {
+  display: none!important;
+}
+
