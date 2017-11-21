@@ -69,9 +69,15 @@
     }
   }
 </script>
-<style scoped>
+<style>
   #video-section > h1 {
     text-align: center;
     text-decoration: underline;
+  }
+
+  .embedly-embed {
+    background-image: url("http://res.cloudinary.com/doohickey/image/upload/c_scale,h_250/v1511293785/grey_spinner_hvtkad.gif");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
   }
 </style>
