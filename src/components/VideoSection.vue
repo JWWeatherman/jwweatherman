@@ -47,15 +47,16 @@
       },
       genVideo ({title, date, description, embedUrl}) {
         const template = `
-          <div class="row-4 w-row">
-            <div class="w-col w-col-2"></div>
-            <div class="w-col w-col-3">
-              <div class="text"><strong class="title">${title}</strong><br>${date}</div>
-              <div class="text">${description}</div>
+          <div class="row-4 w-row medium-rotate small-rotate tiny-rotate">
+            <div class="w-col w-col-2 w-col-medium-8"></div>
+            <div class="w-col w-col-3 w-col-medium-8 description-content">
+              <h4 class="heading tiny-h-font small-h-font medium-h-font">${title}<br></h4>
+              <div class="tiny-font small-font medium-font">${date}</div>
+              <div class="paragraph-2 tiny-font small-font medium-font">${description}</div>
             </div>
-            <div class="column-5 w-col w-col-5">
+            <div class="column-5 w-col w-col-5 w-col-medium-6">
               <div style="padding-top:56.17021276595745%" class="video-2 w-embed w-video">
-                <iframe class="embedly-embed" src="${embedUrl}" scrolling="no" frameborder="0" allowfullscreen=""></iframe>
+                <iframe class="youtube-embeded" src="${embedUrl}" scrolling="no" frameborder="0" allowfullscreen=""></iframe>
               </div>
             </div>
             <div class="w-col w-col-2"></div>
@@ -69,15 +70,3 @@
     }
   }
 </script>
-<style>
-  #video-section > h1 {
-    text-align: center;
-    text-decoration: underline;
-  }
-
-  .embedly-embed {
-    background-image: url("http://res.cloudinary.com/doohickey/image/upload/c_scale,h_250/v1511293785/grey_spinner_hvtkad.gif");
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-  }
-</style>

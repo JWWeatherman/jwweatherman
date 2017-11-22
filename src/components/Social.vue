@@ -36,22 +36,3 @@
     }
   }
 </script>
-<style>
-  #social-zone {
-    color: white;
-  }
-
-  #social-zone > span {
-    margin: 10px;
-  }
-
-  #social-zone > span > a > i {
-    height: 30px;
-    width: 30px;
-  }
-
-  .fa:before {
-    color: white;
-  }
-
-</style>

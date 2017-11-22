@@ -5,10 +5,10 @@
         <div class="column-7 w-col w-col-1"><img src="http://res.cloudinary.com/doohickey/image/upload/v1510257592/chewie_365_nz7hew.png" width="65" class="image-3"></div>
         <div class="column-8 w-col w-col-6">
           <a href="index.html" class="brand-link left-spacing w-nav-brand">
-            <h1 class="brand-text">J.W. Weatherman</h1>
+            <h1 class="brand-text tiny-font small-font medium-font">J.W. Weatherman</h1>
           </a>
         </div>
-        <div class="column-11 w-col w-col-4 w-hidden-tiny">
+        <div class="column-11 w-col w-col-4 w-hidden-tiny tiny-font small-font medium-font">
           <a href="https://www.youtube.com/channel/UCkaB2u7zG4uSCL5Hws3X1jw" class="navigation-link w-nav-link white" target="_blank">YouTube</a>
           <a href="#" @click="scrollToEle('#contact-section')" class="navigation-link w-nav-link white">Contact</a></div>
         <div class="column-6 w-col w-col-1"><a href="#" class="w-nav-link"></a>
@@ -24,7 +24,7 @@
         <div class="breaker w-col w-col-2"></div>
         <div class="column-2 w-col w-col-5"></div>
       </div>
-      <div class="page-subheading">An exploration into the state of the worlds monetary system.</div>
+      <div class="page-subheading tiny-font small-font medium-font">Join the rebellion, learn the tools and technology, and bring freedom and prosperity to the galaxy.</div>
     </div>
   </div>
 </template>

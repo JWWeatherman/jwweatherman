@@ -10,11 +10,7 @@
         </div>
         <div class="w-col w-col-2 w-col-medium-2 w-col-small-small-stack w-col-tiny-tiny-stack"></div>
         <div class="w-col w-col-3 w-col-medium-3 w-col-small-small-stack w-col-tiny-tiny-stack">
-
           <social></social>
-
-          <!--<a href="https://www.youtube.com/channel/UCkaB2u7zG4uSCL5Hws3X1jw" class="social-icon-link w-inline-block" target="_blank"><img src="images/social-16-white.svg" width="41"></a>-->
-          <!--<a href="https://twitter.com/WeathermanIam" class="social-icon-link w-inline-block" target="_blank"><img src="images/social-18-white.svg" width="42" class="image"></a>-->
         </div>
       </div>
     </div>

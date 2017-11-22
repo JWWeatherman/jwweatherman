@@ -3,6 +3,7 @@
     <!-- swiper -->
     <swiper :options="swiperOption">
       <swiper-slide
+        class="swipe-content"
         v-for="(item, ind) in parts"
         :key="type + ':' + ind"
         v-html="item"
