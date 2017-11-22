@@ -1,5 +1,6 @@
 <template>
-  <div class="fixed-image-section" :style="{'background-image': 'radial-gradient(circle farthest-corner at 50% 50%, transparent, rgba(0, 0, 0, .55) 24%, #000), url(' + starryNight + ')'}">
+  <div class="fixed-image-section">
+    <img class="starry-background-image" :src="images.starryNight['2000']" alt="Starry background...">
     <div data-collapse="medium" data-animation="default" data-duration="400" class="dark navigation-bar w-nav">
       <div class="row-7 w-row">
         <div class="column-7 w-col w-col-1"><img :src="images.chewie" width="65" class="image-3"></div>
@@ -32,14 +33,10 @@
   import animations from '../services/animations'
   import images from '../assets/images'
   export default {
-    computed: {
-      starryNight () {
-        return images.starryNight['3000']
-      }
-    },
     data () {
       return {
-        images: images
+        images: images,
+        velocity: 0.5
       }
     },
     methods: {

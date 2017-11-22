@@ -5,10 +5,12 @@
       :parts="parts"
       :type="type"
     ></swiper>
+    <spacer></spacer>
   </div>
 </template>
 <script>
   import Swiper from '@/components/Swiper'
+  import Spacer from '@/components/Spacer'
   import images from '../assets/images'
 
   export default {
@@ -46,7 +48,8 @@
       }
     },
     components: {
-      Swiper
+      Swiper,
+      Spacer
     }
   }
 </script>

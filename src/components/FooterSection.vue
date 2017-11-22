@@ -1,5 +1,5 @@
 <template>
-  <div class="accent footer">
+  <div class="footer">
     <div class="w-container">
       <div class="w-row">
         <div class="column-9 w-col w-col-2 w-col-medium-2 w-col-small-small-stack w-col-tiny-tiny-stack"><img :src="images.chewie" width="54">

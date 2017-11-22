@@ -306,8 +306,7 @@ figcaption {
 
 .section {
   position: relative;
-  margin-bottom: 47px;
-  padding-top: 0px;
+  padding-top: 29px;
   padding-bottom: 29px;
   background-color: #fff;
 }
@@ -357,6 +356,7 @@ figcaption {
 }
 
 .page-heading {
+  z-index: 1000;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -440,15 +440,21 @@ figcaption {
   background-color: #fff;
 }
 
+.starry-background-image {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: 100%;
+}
+
 .fixed-image-section {
   height: 1300px;
   margin-top: -60px;
   margin-bottom: 0px;
   padding: 117px 20px;
-  background-position: 0px 0px, 100% 100%;
-  background-size: auto, cover;
-  background-repeat: repeat, no-repeat;
-  background-attachment: scroll, fixed;
+  background-image: radial-gradient(circle farthest-corner at 50% 50%, transparent, rgba(0, 0, 0, .55) 24%, #000);
   color: #fff;
   text-align: center;
 }
@@ -682,6 +688,7 @@ figcaption {
 }
 
 .footer {
+  background-image: radial-gradient(circle farthest-corner at 50% 50%, transparent, rgba(0, 0, 0, .55) 24%, #000);
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -697,8 +704,6 @@ figcaption {
 
 .footer.accent {
   background-color: #161616;
-  background-image: -webkit-linear-gradient(278deg, #000 18%, transparent 81%), url('http://res.cloudinary.com/doohickey/image/upload/v1510254734/maxresdefault_ayedpp.jpg');
-  background-image: linear-gradient(172deg, #000 18%, transparent 81%), url('http://res.cloudinary.com/doohickey/image/upload/v1510254734/maxresdefault_ayedpp.jpg');
   background-position: 0px 0px, 0px 0px;
   background-size: auto, cover;
 }

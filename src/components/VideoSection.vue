@@ -5,11 +5,13 @@
       :parts="parts"
       :type="type"
     ></swiper>
+    <spacer></spacer>
   </div>
 </template>
 <script>
   import Swiper from '@/components/Swiper'
   import moment from 'moment'
+  import Spacer from '@/components/Spacer'
 
   export default {
     beforeMount () {
@@ -66,7 +68,8 @@
       }
     },
     components: {
-      Swiper
+      Swiper,
+      Spacer
     }
   }
 </script>

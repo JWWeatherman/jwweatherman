@@ -27,10 +27,12 @@
         </div>
       </div>
     </div>
+    <spacer></spacer>
   </div>
 </template>
 <script>
   import VueRecaptcha from 'vue-recaptcha'
+  import Spacer from '@/components/Spacer'
   export default {
     data () {
       return {
@@ -69,7 +71,8 @@
       }
     },
     components: {
-      VueRecaptcha
+      VueRecaptcha,
+      Spacer
     }
   }
 </script>

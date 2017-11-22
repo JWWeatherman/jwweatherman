@@ -23,5 +23,6 @@ export default {
     '500': 'http://res.cloudinary.com/doohickey/image/upload/v1510254013/bc-background-p-500_rcvu42.png',
     '800': 'http://res.cloudinary.com/doohickey/image/upload/v1510259478/bc-background-p-800_foxmgl.png',
     '1020': 'http://res.cloudinary.com/doohickey/image/upload/v1510254024/bc-background_q8whzr.png'
-  }
+  },
+  footerStars: 'http://res.cloudinary.com/doohickey/image/upload/v1510254734/maxresdefault_ayedpp.jpg'
 }
