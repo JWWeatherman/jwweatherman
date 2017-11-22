@@ -1,6 +1,6 @@
 <template>
   <div class="fixed-image-section">
-    <img class="starry-background-image" :src="images.starryNight['2000']" alt="Starry background...">
+    <img class="starry-background-image" :src="starryNight" alt="Starry background...">
     <div data-collapse="medium" data-animation="default" data-duration="400" class="dark navigation-bar w-nav">
       <div class="row-7 w-row">
         <div class="column-7 w-col w-col-1"><img :src="images.chewie" width="65" class="image-3"></div>
@@ -33,14 +33,29 @@
   import animations from '../services/animations'
   import images from '../assets/images'
   export default {
+    mounted () {
+      this.adjustBackgroundImage()
+      $(window).resize(this.adjustBackgroundImage)
+    },
     data () {
       return {
+        starryNight: images.blurs.starryNight,
         images: images,
         velocity: 0.5
       }
     },
     methods: {
-      scrollToEle: animations.scrollToEle
+      scrollToEle: animations.scrollToEle,
+      adjustBackgroundImage () {
+        const width = window.innerWidth
+        const height = window.innerHeight
+        const heightOrWidth = width >= height
+        console.log(heightOrWidth)
+        const background = heightOrWidth ? images.starryNight.width(width) : images.starryNight.height(height)
+        setTimeout(() => {
+          this.starryNight = background
+        }, 500)
+      }
     }
   }
 </script>

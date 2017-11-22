@@ -3,7 +3,7 @@
     <div class="container-3 w-container contact-zone">
       <div class="section-title-group">
         <h2 class="centered section-heading tiny-h-font small-h-font medium-h-font">Contact Form</h2>
-        <div class="center section-subheading tiny-font small-font medium-font">If you can't contact me on Twitter, try the below...</div>
+        <div class="center section-subheading tiny-font small-font medium-font">If you can't contact me on <a href="https://twitter.com/WeathermanIam" target="_blank"><u>Twitter</u></a>, try the below...</div>
       </div>
       <div class="form-wrapper squeezed tiny-squeezed small-squeezed medium-squeezed w-form">
         <form id="email-form" name="email-form" data-name="Email Form" @submit="sendMail($event)" v-if="success === null">
