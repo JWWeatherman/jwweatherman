@@ -445,8 +445,6 @@ figcaption {
   margin-top: -60px;
   margin-bottom: 0px;
   padding: 117px 20px;
-  background-image: -webkit-radial-gradient(circle farthest-corner at 50% 50%, transparent, rgba(0, 0, 0, .55) 24%, #000), url('http://res.cloudinary.com/doohickey/image/upload/v1510254041/maxresdefault-p-2000_d2fw4v.jpg');
-  background-image: radial-gradient(circle farthest-corner at 50% 50%, transparent, rgba(0, 0, 0, .55) 24%, #000), url('http://res.cloudinary.com/doohickey/image/upload/v1510254041/maxresdefault-p-2000_d2fw4v.jpg');
   background-position: 0px 0px, 100% 100%;
   background-size: auto, cover;
   background-repeat: repeat, no-repeat;

@@ -10,5 +10,18 @@ export default {
     '76': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_76/v1510257592/chewie_365_nz7hew.png',
     '152': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_152/v1510257592/chewie_365_nz7hew.png',
     '180': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_180/v1510257592/chewie_365_nz7hew.png'
+  },
+  chewie: 'http://res.cloudinary.com/doohickey/image/upload/v1510257592/chewie_365_nz7hew.png',
+  starryNight: {
+    '3000': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_3000/v1510254041/maxresdefault-p-2000_d2fw4v.jpg',
+    '2000': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_2000/v1510254041/maxresdefault-p-2000_d2fw4v.jpg',
+    '1300': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_1300/v1510254041/maxresdefault-p-2000_d2fw4v.jpg',
+    '800': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_800/v1510254041/maxresdefault-p-2000_d2fw4v.jpg',
+    '400': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_400/v1510254041/maxresdefault-p-2000_d2fw4v.jpg'
+  },
+  bitcoin_vortex: {
+    '500': 'http://res.cloudinary.com/doohickey/image/upload/v1510254013/bc-background-p-500_rcvu42.png',
+    '800': 'http://res.cloudinary.com/doohickey/image/upload/v1510259478/bc-background-p-800_foxmgl.png',
+    '1020': 'http://res.cloudinary.com/doohickey/image/upload/v1510254024/bc-background_q8whzr.png'
   }
 }

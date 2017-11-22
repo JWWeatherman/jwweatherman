@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed-image-section">
+  <div class="fixed-image-section" :style="{'background-image': 'radial-gradient(circle farthest-corner at 50% 50%, transparent, rgba(0, 0, 0, .55) 24%, #000), url(' + starryNight + ')'}">
     <div data-collapse="medium" data-animation="default" data-duration="400" class="dark navigation-bar w-nav">
       <div class="row-7 w-row">
-        <div class="column-7 w-col w-col-1"><img src="http://res.cloudinary.com/doohickey/image/upload/v1510257592/chewie_365_nz7hew.png" width="65" class="image-3"></div>
+        <div class="column-7 w-col w-col-1"><img :src="images.chewie" width="65" class="image-3"></div>
         <div class="column-8 w-col w-col-6">
           <a href="index.html" class="brand-link left-spacing w-nav-brand">
             <h1 class="brand-text tiny-font small-font medium-font">J.W. Weatherman</h1>
@@ -30,7 +30,18 @@
 </template>
 <script>
   import animations from '../services/animations'
+  import images from '../assets/images'
   export default {
+    computed: {
+      starryNight () {
+        return images.starryNight['3000']
+      }
+    },
+    data () {
+      return {
+        images: images
+      }
+    },
     methods: {
       scrollToEle: animations.scrollToEle
     }

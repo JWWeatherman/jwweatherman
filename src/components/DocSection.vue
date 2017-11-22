@@ -9,6 +9,7 @@
 </template>
 <script>
   import Swiper from '@/components/Swiper'
+  import images from '../assets/images'
 
   export default {
     data () {
@@ -19,11 +20,7 @@
             description: 'The bitcoin threat model is intended to help developers, investors and users better understand the security of bitcoin.',
             buttonText: 'Read the Threat Model',
             date: 'October 2017',
-            images: {
-              '500': 'http://res.cloudinary.com/doohickey/image/upload/v1510254013/bc-background-p-500_rcvu42.png',
-              '800': 'http://res.cloudinary.com/doohickey/image/upload/v1510259478/bc-background-p-800_foxmgl.png',
-              '1020': 'http://res.cloudinary.com/doohickey/image/upload/v1510254024/bc-background_q8whzr.png'
-            }
+            images: images.bitcoin_vortex
           })
         ],
         type: 'video'
