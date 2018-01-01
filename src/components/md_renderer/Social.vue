@@ -12,22 +12,26 @@
         <i class="fa fa-reddit"
            title="Reddit"
         >
+          <!--v-b-tooltip.hover-->
         </i>
       </network>
       <network network="twitter">
         <i class="fa fa-twitter"
            title="Twitter"
         ></i>
+        <!--v-b-tooltip.hover-->
       </network>
       <network network="linkedin">
         <i class="fa fa-linkedin"
            title="Linkedin"
         ></i>
+        <!--v-b-tooltip.hover-->
       </network>
       <network network="facebook">
         <i class="fa fa-facebook"
            title="Facebook"
         ></i>
+        <!--v-b-tooltip.hover-->
       </network>
     </div>
   </social-sharing>
@@ -41,15 +45,12 @@
       })
     },
     computed: {
+      url () {
+        return window.location.href.split('#')[0] + '#/threat_model#' + this.id
+      },
       titleAndSubtitle () {
         const subTitle = $('#' + this.id).text()
         return utils.makeTitle(this.title, subTitle === 'Bitcoin Security Threat Model' ? '' : subTitle)
-      },
-      url () {
-        return this.domain + this.id
-      },
-      domain () {
-        return this.state.config.DOMAIN
       },
       description () {
         return this.state.config.DESCRIPTION

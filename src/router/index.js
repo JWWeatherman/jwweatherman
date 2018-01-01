@@ -1,5 +1,5 @@
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'animate.css'
 import 'vue-awesome/icons'
 import 'swiper/dist/css/swiper.css'
@@ -32,7 +32,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/tm',
+      path: '/threat_model',
       name: 'ThreatModel',
       component: MarkdownRenderer
     }

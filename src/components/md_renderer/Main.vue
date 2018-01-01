@@ -17,16 +17,18 @@
             :key="'social:' + ind"
             class="social-zone"
             :id="'social-' + id"
+            @click="scrollToo(id)"
           >
             <Social
               :state="mdState"
               :id="id"
             ></Social>
             <span>
-              <i class="fa fa-clipboard"
-                 title="Copy link to clipboard"
-                 @click="copyClipboard($event, id)"
+              <i class="fa fa-link"
+                 title="Clipboard"
+                 @click="copyClipboard(id)"
               ></i>
+              <!--v-b-tooltip.hover-->
             </span>
           </div>
 
@@ -60,18 +62,14 @@
       const c = {
         COMPANY_NAME: `JW Weatherman`,
         PUBLISH_DATE: `October 2017`,
-        DOMAIN: window.location.href.split('#')[0] + '#/',
         DESCRIPTION: `A security review of the Bitcoin cryptocurrency`,
         TITLE: `Bitcoin Threat Model`,
         FAVICON: `http://res.cloudinary.com/loristeeth/image/upload/v1511128064/Small_btc_logo__y588lv.png`,
         QUOTE: `With e-currency based on cryptographic proof, without the need to trust a third party middleman, money can be secure and transactions effortless.`,
         HASHTAGS: `#bitcoin, #btc, #blockchain, #cryptocurrency, #forex, #crypto, #free`,
-        REPO_URL: 'https://api.github.com/repos/JWWeatherman/bitcoin_security_threat_model/readme',
-        REDDIT_SUBMIT: (headingId, title) => `https://reddit.com/submit?url=${window.location.href.split('#')[0]}${'%23/' + headingId}&title=${title}`,
-        REDDIT_LINK_WANTED: false
+        REPO_URL: 'https://api.github.com/repos/JWWeatherman/bitcoin_security_threat_model/readme'
       }
       this.mdState = new MdState({config: c}, this.processPages)
-      console.log(this.mdState)
     },
     data () {
       return {
@@ -81,7 +79,8 @@
         clipboardLink: '',
         copyStatus: null,
         dismissSecs: 2,
-        dismissCountDown: 0
+        dismissCountDown: 0,
+        copyMessage: `Copied to clipboard!`
       }
     },
     computed: {
@@ -96,25 +95,11 @@
       },
       headingPageHeading () {
         return this.mdState.headingPageHeading
-      },
-      domain () {
-        return this.mdState.config.DOMAIN
-      },
-      copyMessage () {
-        if (this.copyStatus === 'success') {
-          return `
-            Copied to clipboard!
-          `
-        } else {
-          return `
-            Not able to copy to clipboard.
-          `
-        }
       }
     },
     methods: {
-      copyClipboard (evt, id) {
-        this.clipboardLink = this.domain + id
+      copyClipboard (id) {
+        this.clipboardLink = window.location.href.split('#')[0] + '#/threat_model#' + id
 
         const inp = document.createElement('input')
         document.body.appendChild(inp)
@@ -123,15 +108,11 @@
         document.execCommand('copy', false)
         inp.remove()
 
-        this.onCopy()
-      },
-      onCopy () {
         this.copyStatus = 'success'
         this.showAlert()
       },
-      onError () {
-        this.copyStatus = 'danger'
-        this.showAlert()
+      scrollToo (id) {
+        utils.scrollToEle(this, '#' + id)
       },
       countDownChanged (dismissCountDown) {
         this.dismissCountDown = dismissCountDown
@@ -150,6 +131,15 @@
         const dis = this
         setTimeout(() => {
           const $page = $('.page')
+
+          /*
+          * scroll to element if in url
+          * */
+          const location = window.location.href
+          const gotoEle = location.split('#').pop()
+          if (gotoEle !== '/threat_model') {
+            utils.scrollToEle(this, '#' + gotoEle)
+          }
 
           /*
           * implements bootstrap img-fluid on all images
@@ -176,7 +166,7 @@
           const $page2 = $('.page-2')
           $page2.find('a').on('click', function () {
             const name = $(this).attr('name')
-            utils.scrollToEle('#' + name)
+            utils.scrollToEle(dis, '#' + name)
           }).on('mouseover', function () {
             $(this).parent().addClass('hover-color')
           }).on('mouseleave', function () {
@@ -193,18 +183,6 @@
           })
 
           /*
-          * scroll to desired element on page load if exists in url
-          * */
-          const params = window.location.href.split('tm/')[1]
-          if (params !== undefined) {
-            const headingId = params.replace('/', '')
-            if (headingId !== '' && headingId !== undefined) {
-              utils.scrollToEle('#' + headingId)
-              this.$router.push('/')
-            }
-          }
-
-          /*
           * adds media queries to elements
           * */
           const hTags = $('h1, h2, h3, h4')
@@ -213,7 +191,7 @@
           })
 
           /*
-          *
+          * implements social buttons when mouse over h tag
           * */
           hTags.each(function () {
             $(this).mouseenter(function () {

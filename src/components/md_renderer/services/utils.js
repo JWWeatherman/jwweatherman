@@ -6,16 +6,20 @@ export default {
       cb($(this).find('.page-number').text())
     })
   },
-  scrollToEle (ele) {
+  scrollToEle (context, ele) {
     const $ele = $(ele)
     $('html, body').animate({
       scrollTop: $ele.offset().top - 110
-    }, 2000)
+    }, 2000, () => {
+      context.$router.push(ele)
+    })
   },
-  scrollTop () {
+  scrollTop (context) {
     $('html, body').animate({
       scrollTop: $('.page-2').offset().top
-    }, 1500)
+    }, 1500, () => {
+      context.$router.push('/threat_model')
+    })
   },
   reload () {
     location.reload(true)

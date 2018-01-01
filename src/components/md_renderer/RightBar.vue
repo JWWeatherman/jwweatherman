@@ -15,7 +15,7 @@
   export default {
     methods: {
       scrollTop () {
-        utils.scrollTop()
+        utils.scrollTop(this)
       },
       download () {
         return ''
