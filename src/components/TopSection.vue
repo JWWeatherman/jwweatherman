@@ -50,8 +50,8 @@
         const width = window.innerWidth
         const height = window.innerHeight
         const heightOrWidth = width >= height
-        console.log(heightOrWidth)
         const background = heightOrWidth ? images.starryNight.width(width) : images.starryNight.height(height)
+        this.starryNight = images.blurs.starryNight
         setTimeout(() => {
           this.starryNight = background
         }, 500)

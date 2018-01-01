@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.jwweatherman"
+		module="jwweatherman_2.12"
+		revision="1.0"
+		conf="test"
+		confs="compile, runtime, test, provided, optional, container, jetty, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
+		date="20171125083819"/>
+	<dependencies>
+		<module organisation="org.scala-lang" name="scala-reflect">
+			<revision name="2.12.4" status="release" pubdate="20171011032224" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.4/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="34">
+				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
+				<metadata-artifact status="no" details="" size="2825" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.12.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.4/scala-reflect-2.12.4.pom"/>
+				<caller organisation="org.scalatest" name="scalatest_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="3.0.3"/>
+				<caller organisation="org.scalactic" name="scalactic_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="3.0.3"/>
+				<artifacts>
+					<artifact name="scala-reflect" type="jar" ext="jar" status="no" details="" size="3587892" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.4/scala-reflect-2.12.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="ch.qos.logback" name="logback-classic">
+			<revision name="1.1.5" status="release" pubdate="20160213172547" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="10">
+				<license name="Eclipse Public License - v 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"/>
+				<metadata-artifact status="no" details="" size="10130" time="0" location="/Users/WindIndustries/.ivy2/cache/ch.qos.logback/logback-classic/ivy-1.1.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.5/logback-classic-1.1.5.pom"/>
+				<caller organisation="com.jwweatherman" name="jwweatherman_2.12" conf="test, compile, runtime" rev="1.1.5" rev-constraint-default="1.1.5" rev-constraint-dynamic="1.1.5" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="logback-classic" type="jar" ext="jar" status="no" details="" size="281530" time="0" location="/Users/WindIndustries/.ivy2/cache/ch.qos.logback/logback-classic/jars/logback-classic-1.1.5.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/ch/qos/logback/logback-classic/1.1.5/logback-classic-1.1.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="ch.qos.logback" name="logback-core">
+			<revision name="1.1.5" status="release" pubdate="20160213172431" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="11">
+				<license name="Eclipse Public License - v 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<license name="GNU Lesser General Public License" url="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html"/>
+				<metadata-artifact status="no" details="" size="7778" time="0" location="/Users/WindIndustries/.ivy2/cache/ch.qos.logback/logback-core/ivy-1.1.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.5/logback-core-1.1.5.pom"/>
+				<caller organisation="ch.qos.logback" name="logback-classic" conf="default, compile, runtime, master" rev="1.1.5" rev-constraint-default="1.1.5" rev-constraint-dynamic="1.1.5" callerrev="1.1.5"/>
+				<artifacts>
+					<artifact name="logback-core" type="jar" ext="jar" status="no" details="" size="456187" time="0" location="/Users/WindIndustries/.ivy2/cache/ch.qos.logback/logback-core/jars/logback-core-1.1.5.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/ch/qos/logback/logback-core/1.1.5/logback-core-1.1.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatra" name="scalatra_2.12">
+			<revision name="2.6.2" status="release" pubdate="20171117112212" resolver="public" artresolver="public" homepage="http://www.scalatra.org/" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="3">
+				<license name="BSD" url="http://github.com/scalatra/scalatra/raw/HEAD/LICENSE"/>
+				<metadata-artifact status="successful" details="" size="6469" time="132" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra_2.12/ivy-2.6.2.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra_2.12/ivy-2.6.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatra/scalatra_2.12/2.6.2/scalatra_2.12-2.6.2.pom"/>
+				<caller organisation="com.jwweatherman" name="jwweatherman_2.12" conf="test, compile, runtime" rev="2.6.2" rev-constraint-default="2.6.2" rev-constraint-dynamic="2.6.2" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="scalatra_2.12" type="jar" ext="jar" status="successful" details="" size="914658" time="559" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra_2.12/jars/scalatra_2.12-2.6.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatra/scalatra_2.12/2.6.2/scalatra_2.12-2.6.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-parser-combinators_2.12">
+			<revision name="1.0.6" status="release" pubdate="20170502092827" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="9">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="2929" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.6/scala-parser-combinators_2.12-1.0.6.pom"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="2.6.2"/>
+				<caller organisation="org.scalatest" name="scalatest_2.12" conf="compile, runtime" rev="1.0.4" rev-constraint-default="1.0.4" rev-constraint-dynamic="1.0.4" callerrev="3.0.3"/>
+				<artifacts>
+					<artifact name="scala-parser-combinators_2.12" type="bundle" ext="jar" status="no" details="" size="212067" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.0.6.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-parser-combinators_2.12/1.0.6/scala-parser-combinators_2.12-1.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="1.0.4" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+				<evicted-by rev="1.0.6"/>
+				<caller organisation="org.scalatest" name="scalatest_2.12" conf="compile, runtime" rev="1.0.4" rev-constraint-default="1.0.4" rev-constraint-dynamic="1.0.4" callerrev="3.0.3"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="eu.medsea.mimeutil" name="mime-util">
+			<revision name="2.1.3" status="release" pubdate="20100105032400" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.medsea.eu/mime-util/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="7">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3581" time="0" location="/Users/WindIndustries/.ivy2/cache/eu.medsea.mimeutil/mime-util/ivy-2.1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/eu/medsea/mimeutil/mime-util/2.1.3/mime-util-2.1.3.pom"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="2.1.3" rev-constraint-default="2.1.3" rev-constraint-dynamic="2.1.3" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="mime-util" type="bundle" ext="jar" status="no" details="" size="119180" time="0" location="/Users/WindIndustries/.ivy2/cache/eu.medsea.mimeutil/mime-util/bundles/mime-util-2.1.3.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/eu/medsea/mimeutil/mime-util/2.1.3/mime-util-2.1.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.googlecode.juniversalchardet" name="juniversalchardet">
+			<revision name="1.0.3" status="release" pubdate="20110919133824" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://juniversalchardet.googlecode.com/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
+				<license name="Mozilla Public License 1.1 (MPL 1.1)" url="http://www.mozilla.org/MPL/MPL-1.1.html"/>
+				<metadata-artifact status="no" details="" size="2716" time="0" location="/Users/WindIndustries/.ivy2/cache/com.googlecode.juniversalchardet/juniversalchardet/ivy-1.0.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.pom"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="1.0.3" rev-constraint-default="1.0.3" rev-constraint-dynamic="1.0.3" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="juniversalchardet" type="jar" ext="jar" status="no" details="" size="220813" time="0" location="/Users/WindIndustries/.ivy2/cache/com.googlecode.juniversalchardet/juniversalchardet/jars/juniversalchardet-1.0.3.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="slf4j-api">
+			<revision name="1.7.25" status="release" pubdate="20170316123632" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="5">
+				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
+				<metadata-artifact status="no" details="" size="5199" time="0" location="/Users/WindIndustries/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.25.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.pom"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="1.7.25" rev-constraint-default="1.7.25" rev-constraint-dynamic="1.7.25" callerrev="2.6.2"/>
+				<caller organisation="ch.qos.logback" name="logback-classic" conf="default, compile, runtime, master" rev="1.7.16" rev-constraint-default="1.7.16" rev-constraint-dynamic="1.7.16" callerrev="1.1.5"/>
+				<caller organisation="eu.medsea.mimeutil" name="mime-util" conf="compile, runtime" rev="1.5.6" rev-constraint-default="1.5.6" rev-constraint-dynamic="1.5.6" callerrev="2.1.3"/>
+				<artifacts>
+					<artifact name="slf4j-api" type="jar" ext="jar" status="no" details="" size="41203" time="0" location="/Users/WindIndustries/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.25.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="1.7.16" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+				<evicted-by rev="1.7.25"/>
+				<caller organisation="ch.qos.logback" name="logback-classic" conf="default, compile, runtime, master" rev="1.7.16" rev-constraint-default="1.7.16" rev-constraint-dynamic="1.7.16" callerrev="1.1.5"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+			<revision name="1.5.6" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+				<evicted-by rev="1.7.25"/>
+				<caller organisation="eu.medsea.mimeutil" name="mime-util" conf="compile, runtime" rev="1.5.6" rev-constraint-default="1.5.6" rev-constraint-dynamic="1.5.6" callerrev="2.1.3"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatra" name="scalatra-scalatest_2.12">
+			<revision name="2.6.2" status="release" pubdate="20171117111958" resolver="public" artresolver="public" homepage="http://www.scalatra.org/" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="12">
+				<license name="BSD" url="http://github.com/scalatra/scalatra/raw/HEAD/LICENSE"/>
+				<metadata-artifact status="successful" details="" size="4699" time="104" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-scalatest_2.12/ivy-2.6.2.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-scalatest_2.12/ivy-2.6.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatra/scalatra-scalatest_2.12/2.6.2/scalatra-scalatest_2.12-2.6.2.pom"/>
+				<caller organisation="com.jwweatherman" name="jwweatherman_2.12" conf="test, compile, runtime" rev="2.6.2" rev-constraint-default="2.6.2" rev-constraint-dynamic="2.6.2" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="scalatra-scalatest_2.12" type="jar" ext="jar" status="successful" details="" size="7222" time="156" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-scalatest_2.12/jars/scalatra-scalatest_2.12-2.6.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatra/scalatra-scalatest_2.12/2.6.2/scalatra-scalatest_2.12-2.6.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatest" name="scalatest_2.12">
+			<revision name="3.0.3" status="release" pubdate="20170420053153" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="32">
+				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="4901" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scalatest/scalatest_2.12/ivy-3.0.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.3/scalatest_2.12-3.0.3.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-scalatest_2.12" conf="default, compile, runtime, master" rev="3.0.3" rev-constraint-default="3.0.3" rev-constraint-dynamic="3.0.3" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="scalatest_2.12" type="bundle" ext="jar" status="no" details="" size="6992631" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scalatest/scalatest_2.12/bundles/scalatest_2.12-3.0.3.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.12/3.0.3/scalatest_2.12-3.0.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalactic" name="scalactic_2.12">
+			<revision name="3.0.3" status="release" pubdate="20170420052901" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="33">
+				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2967" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scalactic/scalactic_2.12/ivy-3.0.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.pom"/>
+				<caller organisation="org.scalatest" name="scalatest_2.12" conf="compile, runtime" rev="3.0.3" rev-constraint-default="3.0.3" rev-constraint-dynamic="3.0.3" callerrev="3.0.3"/>
+				<artifacts>
+					<artifact name="scalactic_2.12" type="bundle" ext="jar" status="no" details="" size="705558" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scalactic/scalactic_2.12/bundles/scalactic_2.12-3.0.3.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalactic/scalactic_2.12/3.0.3/scalactic_2.12-3.0.3.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatra" name="scalatra-test_2.12">
+			<revision name="2.6.2" status="release" pubdate="20171117111945" resolver="public" artresolver="public" homepage="http://www.scalatra.org/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="13">
+				<license name="BSD" url="http://github.com/scalatra/scalatra/raw/HEAD/LICENSE"/>
+				<metadata-artifact status="successful" details="" size="6068" time="117" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-test_2.12/ivy-2.6.2.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-test_2.12/ivy-2.6.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatra/scalatra-test_2.12/2.6.2/scalatra-test_2.12-2.6.2.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-scalatest_2.12" conf="default, compile, runtime, master" rev="2.6.2" rev-constraint-default="2.6.2" rev-constraint-dynamic="2.6.2" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="scalatra-test_2.12" type="jar" ext="jar" status="successful" details="" size="80721" time="123" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-test_2.12/jars/scalatra-test_2.12-2.6.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatra/scalatra-test_2.12/2.6.2/scalatra-test_2.12-2.6.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpmime">
+			<revision name="4.5.3" status="release" pubdate="20170121110043" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="28">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9321" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.httpcomponents/httpmime/ivy-4.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="4.5.3" rev-constraint-default="4.5.3" rev-constraint-dynamic="4.5.3" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="httpmime" type="jar" ext="jar" status="no" details="" size="41029" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.httpcomponents/httpmime/jars/httpmime-4.5.3.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpclient">
+			<revision name="4.5.3" status="release" pubdate="20170121110023" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-client" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="24">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="9802" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.httpcomponents/httpclient/ivy-4.5.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.pom"/>
+				<caller organisation="org.apache.httpcomponents" name="httpmime" conf="compile, runtime" rev="4.5.3" rev-constraint-default="4.5.3" rev-constraint-dynamic="4.5.3" callerrev="4.5.3"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="4.5.3" rev-constraint-default="4.5.3" rev-constraint-dynamic="4.5.3" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="httpclient" type="jar" ext="jar" status="no" details="" size="747794" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.5.3.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-codec" name="commons-codec">
+			<revision name="1.9" status="release" pubdate="20131220225739" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-codec/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="27">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="10097" time="0" location="/Users/WindIndustries/.ivy2/cache/commons-codec/commons-codec/ivy-1.9.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.9/commons-codec-1.9.pom"/>
+				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="1.9" rev-constraint-default="1.9" rev-constraint-dynamic="1.9" callerrev="4.5.3"/>
+				<artifacts>
+					<artifact name="commons-codec" type="jar" ext="jar" status="no" details="" size="263965" time="0" location="/Users/WindIndustries/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.9.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/commons-codec/commons-codec/1.9/commons-codec-1.9.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.httpcomponents" name="httpcore">
+			<revision name="4.4.6" status="release" pubdate="20170107085008" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core-ga" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="25">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="8156" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.httpcomponents/httpcore/ivy-4.4.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.pom"/>
+				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="4.4.6" rev-constraint-default="4.4.6" rev-constraint-dynamic="4.4.6" callerrev="4.5.3"/>
+				<artifacts>
+					<artifact name="httpcore" type="jar" ext="jar" status="no" details="" size="323824" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.4.6.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="commons-logging" name="commons-logging">
+			<revision name="1.2" status="release" pubdate="20140705141228" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-logging/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="26">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="11623" time="0" location="/Users/WindIndustries/.ivy2/cache/commons-logging/commons-logging/ivy-1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.pom"/>
+				<caller organisation="org.apache.httpcomponents" name="httpclient" conf="compile, runtime" rev="1.2" rev-constraint-default="1.2" rev-constraint-dynamic="1.2" callerrev="4.5.3"/>
+				<artifacts>
+					<artifact name="commons-logging" type="jar" ext="jar" status="no" details="" size="61829" time="0" location="/Users/WindIndustries/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.2.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.apache.commons" name="commons-lang3">
+			<revision name="3.6" status="release" pubdate="20170609054105" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-lang/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="8">
+				<license name="Apache License, Version 2.0" url="https://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="13392" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.commons/commons-lang3/ivy-3.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.pom"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="3.6" rev-constraint-default="3.6" rev-constraint-dynamic="3.6" callerrev="2.6.2"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="3.6" rev-constraint-default="3.6" rev-constraint-dynamic="3.6" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="commons-lang3" type="jar" ext="jar" status="no" details="" size="494856" time="0" location="/Users/WindIndustries/.ivy2/cache/org.apache.commons/commons-lang3/jars/commons-lang3-3.6.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.mockito" name="mockito-core">
+			<revision name="2.7.22" status="release" pubdate="20170407104341" resolver="public" artresolver="public" homepage="http://mockito.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="23">
+				<license name="The MIT License" url="http://github.com/mockito/mockito/blob/master/LICENSE"/>
+				<metadata-artifact status="successful" details="" size="2313" time="95" location="/Users/WindIndustries/.ivy2/cache/org.mockito/mockito-core/ivy-2.7.22.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.mockito/mockito-core/ivy-2.7.22.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/mockito/mockito-core/2.7.22/mockito-core-2.7.22.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="2.7.22" rev-constraint-default="2.7.22" rev-constraint-dynamic="2.7.22" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="mockito-core" type="jar" ext="jar" status="successful" details="" size="533647" time="312" location="/Users/WindIndustries/.ivy2/cache/org.mockito/mockito-core/jars/mockito-core-2.7.22.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/mockito/mockito-core/2.7.22/mockito-core-2.7.22.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.objenesis" name="objenesis">
+			<revision name="2.5" status="release" pubdate="20170112234021" resolver="public" artresolver="public" homepage="http://objenesis.org" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="31">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="2783" time="105" location="/Users/WindIndustries/.ivy2/cache/org.objenesis/objenesis/ivy-2.5.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.objenesis/objenesis/ivy-2.5.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/objenesis/objenesis/2.5/objenesis-2.5.pom"/>
+				<caller organisation="org.mockito" name="mockito-core" conf="compile, runtime" rev="2.5" rev-constraint-default="2.5" rev-constraint-dynamic="2.5" callerrev="2.7.22"/>
+				<artifacts>
+					<artifact name="objenesis" type="jar" ext="jar" status="successful" details="" size="54393" time="97" location="/Users/WindIndustries/.ivy2/cache/org.objenesis/objenesis/jars/objenesis-2.5.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/objenesis/objenesis/2.5/objenesis-2.5.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.bytebuddy" name="byte-buddy-agent">
+			<revision name="1.6.11" status="release" pubdate="20170312142336" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="30">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="4496" time="100" location="/Users/WindIndustries/.ivy2/cache/net.bytebuddy/byte-buddy-agent/ivy-1.6.11.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/net.bytebuddy/byte-buddy-agent/ivy-1.6.11.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.6.11/byte-buddy-agent-1.6.11.pom"/>
+				<caller organisation="org.mockito" name="mockito-core" conf="compile, runtime" rev="1.6.11" rev-constraint-default="1.6.11" rev-constraint-dynamic="1.6.11" callerrev="2.7.22"/>
+				<artifacts>
+					<artifact name="byte-buddy-agent" type="jar" ext="jar" status="successful" details="" size="31084" time="117" location="/Users/WindIndustries/.ivy2/cache/net.bytebuddy/byte-buddy-agent/jars/byte-buddy-agent-1.6.11.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy-agent/1.6.11/byte-buddy-agent-1.6.11.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="junit" name="junit">
+			<revision name="4.12" status="release" pubdate="20141204111743" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://junit.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="35">
+				<license name="Eclipse Public License 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<metadata-artifact status="no" details="" size="3317" time="0" location="/Users/WindIndustries/.ivy2/cache/junit/junit/ivy-4.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-scalatest_2.12" conf="default, compile, runtime, master" rev="4.12" rev-constraint-default="4.12" rev-constraint-dynamic="4.12" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="junit" type="jar" ext="jar" status="no" details="" size="314932" time="0" location="/Users/WindIndustries/.ivy2/cache/junit/junit/jars/junit-4.12.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.hamcrest" name="hamcrest-core">
+			<revision name="1.3" status="release" pubdate="20120709170802" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="36">
+				<license name="New BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2617" time="0" location="/Users/WindIndustries/.ivy2/cache/org.hamcrest/hamcrest-core/ivy-1.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.pom"/>
+				<caller organisation="junit" name="junit" conf="compile, runtime" rev="1.3" rev-constraint-default="1.3" rev-constraint-dynamic="1.3" callerrev="4.12"/>
+				<artifacts>
+					<artifact name="hamcrest-core" type="jar" ext="jar" status="no" details="" size="45024" time="0" location="/Users/WindIndustries/.ivy2/cache/org.hamcrest/hamcrest-core/jars/hamcrest-core-1.3.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.bytebuddy" name="byte-buddy">
+			<revision name="1.6.11" status="release" pubdate="20170312142344" resolver="public" artresolver="public" homepage="" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="29">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="11784" time="101" location="/Users/WindIndustries/.ivy2/cache/net.bytebuddy/byte-buddy/ivy-1.6.11.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/net.bytebuddy/byte-buddy/ivy-1.6.11.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.6.11/byte-buddy-1.6.11.pom"/>
+				<caller organisation="org.mockito" name="mockito-core" conf="compile, runtime" rev="1.6.11" rev-constraint-default="1.6.11" rev-constraint-dynamic="1.6.11" callerrev="2.7.22"/>
+				<artifacts>
+					<artifact name="byte-buddy" type="jar" ext="jar" status="successful" details="" size="2783513" time="777" location="/Users/WindIndustries/.ivy2/cache/net.bytebuddy/byte-buddy/jars/byte-buddy-1.6.11.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/bytebuddy/byte-buddy/1.6.11/byte-buddy-1.6.11.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-webapp">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192833" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="14">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="2486" time="107" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-webapp/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-webapp/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-webapp/9.4.6.v20170531/jetty-webapp-9.4.6.v20170531.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="jetty-webapp" type="jar" ext="jar" status="successful" details="" size="121362" time="187" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-webapp/jars/jetty-webapp-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-webapp/9.4.6.v20170531/jetty-webapp-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-servlet">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192754" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="17">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="2127" time="100" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-servlet/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-servlet/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/9.4.6.v20170531/jetty-servlet-9.4.6.v20170531.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-webapp" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="jetty-servlet" type="jar" ext="jar" status="successful" details="" size="110502" time="124" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-servlet/jars/jetty-servlet-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-servlet/9.4.6.v20170531/jetty-servlet-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-security">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192722" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="18">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="2016" time="100" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-security/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-security/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/9.4.6.v20170531/jetty-security-9.4.6.v20170531.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-servlet" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="jetty-security" type="jar" ext="jar" status="successful" details="" size="93085" time="411" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-security/jars/jetty-security-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-security/9.4.6.v20170531/jetty-security-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-server">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192642" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="19">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="2561" time="107" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-server/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-server/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/9.4.6.v20170531/jetty-server-9.4.6.v20170531.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-security" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="jetty-server" type="jar" ext="jar" status="successful" details="" size="579819" time="301" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-server/jars/jetty-server-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/9.4.6.v20170531/jetty-server-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-http">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192519" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="21">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="2742" time="113" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-http/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-http/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/9.4.6.v20170531/jetty-http-9.4.6.v20170531.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="jetty-http" type="jar" ext="jar" status="successful" details="" size="163922" time="124" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-http/jars/jetty-http-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/9.4.6.v20170531/jetty-http-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-io">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192454" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="22">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="1301" time="101" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-io/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-io/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/9.4.6.v20170531/jetty-io-9.4.6.v20170531.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-http" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="jetty-io" type="jar" ext="jar" status="successful" details="" size="128844" time="151" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-io/jars/jetty-io-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/9.4.6.v20170531/jetty-io-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-xml">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192542" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="15">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="1323" time="113" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-xml/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-xml/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-xml/9.4.6.v20170531/jetty-xml-9.4.6.v20170531.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-webapp" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="jetty-xml" type="jar" ext="jar" status="successful" details="" size="50392" time="122" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-xml/jars/jetty-xml-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-xml/9.4.6.v20170531/jetty-xml-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-util">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531192405" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="16">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="2073" time="100" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-util/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-util/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.4.6.v20170531/jetty-util-9.4.6.v20170531.pom"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-xml" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-io" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-http" conf="compile, runtime" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="jetty-util" type="jar" ext="jar" status="successful" details="" size="457682" time="254" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-util/jars/jetty-util-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/9.4.6.v20170531/jetty-util-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatra" name="scalatra-common_2.12">
+			<revision name="2.6.2" status="release" pubdate="20171117111928" resolver="public" artresolver="public" homepage="http://www.scalatra.org/" downloaded="true" searched="true" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="4">
+				<license name="BSD" url="http://github.com/scalatra/scalatra/raw/HEAD/LICENSE"/>
+				<metadata-artifact status="successful" details="" size="3948" time="113" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-common_2.12/ivy-2.6.2.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-common_2.12/ivy-2.6.2.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatra/scalatra-common_2.12/2.6.2/scalatra-common_2.12-2.6.2.pom"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="2.6.2" rev-constraint-default="2.6.2" rev-constraint-dynamic="2.6.2" callerrev="2.6.2"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="2.6.2" rev-constraint-default="2.6.2" rev-constraint-dynamic="2.6.2" callerrev="2.6.2"/>
+				<artifacts>
+					<artifact name="scalatra-common_2.12" type="jar" ext="jar" status="successful" details="" size="15325" time="160" location="/Users/WindIndustries/.ivy2/cache/org.scalatra/scalatra-common_2.12/jars/scalatra-common_2.12-2.6.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatra/scalatra-common_2.12/2.6.2/scalatra-common_2.12-2.6.2.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="javax.servlet" name="javax.servlet-api">
+			<revision name="3.1.0" status="release" pubdate="20130425195239" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://servlet-spec.java.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="20">
+				<license name="CDDL + GPLv2 with classpath exception" url="https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html"/>
+				<metadata-artifact status="no" details="" size="4276" time="0" location="/Users/WindIndustries/.ivy2/cache/javax.servlet/javax.servlet-api/ivy-3.1.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="3.1.0" rev-constraint-default="3.1.0" rev-constraint-dynamic="3.1.0" callerrev="2.6.2"/>
+				<caller organisation="org.eclipse.jetty" name="jetty-server" conf="compile, runtime" rev="3.1.0" rev-constraint-default="3.1.0" rev-constraint-dynamic="3.1.0" callerrev="9.4.6.v20170531"/>
+				<artifacts>
+					<artifact name="javax.servlet-api" type="jar" ext="jar" status="no" details="" size="95806" time="0" location="/Users/WindIndustries/.ivy2/cache/javax.servlet/javax.servlet-api/jars/javax.servlet-api-3.1.0.jar">
+						<origin-location is-local="false" location="UNKNOWN"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.play" name="twirl-api_2.12">
+			<revision name="1.3.12" status="release" pubdate="20170929145859" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/playframework/twirl" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="1">
+				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="2942" time="0" location="/Users/WindIndustries/.ivy2/cache/com.typesafe.play/twirl-api_2.12/ivy-1.3.12.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/typesafe/play/twirl-api_2.12/1.3.12/twirl-api_2.12-1.3.12.pom"/>
+				<caller organisation="com.jwweatherman" name="jwweatherman_2.12" conf="test, compile, runtime" rev="1.3.12" rev-constraint-default="1.3.12" rev-constraint-dynamic="1.3.12" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="twirl-api_2.12" type="jar" ext="jar" status="no" details="" size="76119" time="0" location="/Users/WindIndustries/.ivy2/cache/com.typesafe.play/twirl-api_2.12/jars/twirl-api_2.12-1.3.12.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/typesafe/play/twirl-api_2.12/1.3.12/twirl-api_2.12-1.3.12.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang.modules" name="scala-xml_2.12">
+			<revision name="1.0.6" status="release" pubdate="20161101102105" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="2">
+				<license name="BSD 3-clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
+				<metadata-artifact status="no" details="" size="3137" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/ivy-1.0.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.pom"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="2.6.2"/>
+				<caller organisation="com.typesafe.play" name="twirl-api_2.12" conf="default, compile, runtime, master" rev="1.0.6" rev-constraint-default="1.0.6" rev-constraint-dynamic="1.0.6" callerrev="1.3.12"/>
+				<caller organisation="org.scalatest" name="scalatest_2.12" conf="compile, runtime" rev="1.0.5" rev-constraint-default="1.0.5" rev-constraint-dynamic="1.0.5" callerrev="3.0.3"/>
+				<artifacts>
+					<artifact name="scala-xml_2.12" type="bundle" ext="jar" status="no" details="" size="547860" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/modules/scala-xml_2.12/1.0.6/scala-xml_2.12-1.0.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+			<revision name="1.0.5" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="-1">
+				<evicted-by rev="1.0.6"/>
+				<caller organisation="org.scalatest" name="scalatest_2.12" conf="compile, runtime" rev="1.0.5" rev-constraint-default="1.0.5" rev-constraint-dynamic="1.0.5" callerrev="3.0.3"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.12.4" status="release" pubdate="20171011030456" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.12.4/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="0">
+				<license name="BSD 3-Clause" url="http://www.scala-lang.org/license.html"/>
+				<metadata-artifact status="no" details="" size="2653" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang/scala-library/ivy-2.12.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.4/scala-library-2.12.4.pom"/>
+				<caller organisation="org.scalatra" name="scalatra-common_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="2.6.2"/>
+				<caller organisation="org.scalatra" name="scalatra_2.12" conf="default, compile, runtime, master" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="2.6.2"/>
+				<caller organisation="org.scalatra" name="scalatra-test_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="2.6.2"/>
+				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="2.12.4"/>
+				<caller organisation="com.typesafe.play" name="twirl-api_2.12" conf="default, compile, runtime, master" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="1.3.12"/>
+				<caller organisation="org.scalatest" name="scalatest_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="3.0.3"/>
+				<caller organisation="org.scala-lang.modules" name="scala-parser-combinators_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="1.0.6"/>
+				<caller organisation="org.scalatra" name="scalatra-scalatest_2.12" conf="default, compile, runtime, master" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="2.6.2"/>
+				<caller organisation="org.scalactic" name="scalactic_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="3.0.3"/>
+				<caller organisation="org.scala-lang.modules" name="scala-xml_2.12" conf="compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="1.0.6"/>
+				<caller organisation="com.jwweatherman" name="jwweatherman_2.12" conf="test, compile, runtime" rev="2.12.4" rev-constraint-default="2.12.4" rev-constraint-dynamic="2.12.4" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="scala-library" type="jar" ext="jar" status="no" details="" size="5247152" time="0" location="/Users/WindIndustries/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.4.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.4/scala-library-2.12.4.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

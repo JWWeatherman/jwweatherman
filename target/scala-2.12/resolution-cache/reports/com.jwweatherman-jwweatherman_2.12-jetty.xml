@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.jwweatherman"
+		module="jwweatherman_2.12"
+		revision="1.0"
+		conf="jetty"
+		confs="compile, runtime, test, provided, optional, container, jetty, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
+		date="20171125083819"/>
+	<dependencies>
+		<module organisation="org.eclipse.jetty" name="jetty-runner">
+			<revision name="9.4.6.v20170531" status="release" pubdate="20170531195227" resolver="public" artresolver="public" homepage="http://www.eclipse.org/jetty" downloaded="true" searched="true" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+				<license name="Apache Software License - Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<license name="Eclipse Public License - Version 1.0" url="http://www.eclipse.org/org/documents/epl-v10.php"/>
+				<metadata-artifact status="successful" details="" size="4096" time="104" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-runner/ivy-9.4.6.v20170531.xml" searched="true" original-local-location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-runner/ivy-9.4.6.v20170531.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.4.6.v20170531/jetty-runner-9.4.6.v20170531.pom"/>
+				<caller organisation="com.jwweatherman" name="jwweatherman_2.12" conf="jetty" rev="9.4.6.v20170531" rev-constraint-default="9.4.6.v20170531" rev-constraint-dynamic="9.4.6.v20170531" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="jetty-runner" type="jar" ext="jar" status="successful" details="" size="6638956" time="1288" location="/Users/WindIndustries/.ivy2/cache/org.eclipse.jetty/jetty-runner/jars/jetty-runner-9.4.6.v20170531.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.4.6.v20170531/jetty-runner-9.4.6.v20170531.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

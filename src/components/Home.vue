@@ -41,7 +41,8 @@
             description: 'The bitcoin threat model is intended to help developers, investors and users better understand the security of bitcoin.',
             buttonText: 'Read the Threat Model',
             date: 'October 2017',
-            image: images.blurs.bitcoin_vortex
+            image: images.blurs.bitcoin_vortex,
+            uri: 'http://btcthreats.com/'
           })
         ],
         vidParts: []
@@ -53,7 +54,7 @@
           $('.doc-image').attr('src', images.bitcoin_vortex('500'))
         }, 500)
       },
-      genDocTemplates ({heading, description, buttonText, date, image}) {
+      genDocTemplates ({heading, description, buttonText, date, image, uri}) {
         const template = `
           <div class="row-6 w-row medium-rotate small-rotate tiny-rotate">
             <div class="w-col w-col-2 w-col-medium-8"></div>
@@ -61,7 +62,7 @@
               <h4 class="heading tiny-h-font small-h-font medium-h-font">${heading}</h4>
               <div class="tiny-font small-font medium-font">${date}</div>
               <p class="paragraph-2 tiny-font small-font medium-font">${description}</p>
-              <a href="https://gateway.ipfs.io/ipfs/QmSJm9XGHXyxRaMFfLN2scunbMyopCU7xPxz3WQHLfLKQy/" class="button tiny-font small-font medium-font" target="_blank">${buttonText}</a>
+              <a href="${uri}" class="button tiny-font small-font medium-font" target="_blank">${buttonText}</a>
             </div>
             <div class="column-5 w-col w-col-5 w-col-medium-8">
               <img src="${image}" class="image-2 doc-image">

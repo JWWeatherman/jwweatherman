@@ -1,0 +1,63 @@
+@media (min-device-width: 767px) and (max-device-width: 991px) {
+  .medium-font {
+    line-height: 105%!important;
+  }
+  .medium-h-font {
+    font-size: 120%;
+  }
+  .medium-height {
+    height: 120%!important;
+  }
+  .medium-squeezed {
+    padding: 0!important;
+  }
+}
+
+@media (min-device-width: 479px) and (max-device-width: 768px){
+  .small-font {
+    font-size: 180%!important;
+    line-height: 110%!important;
+  }
+  .small-h-font {
+    font-size: 180%!important;
+  }
+  .small-height {
+    height: 180%;
+  }
+  .small-squeezed {
+    padding: 0!important;
+  }
+}
+
+@media (max-device-width: 479px) {
+  .tiny-font {
+    font-size: 200%!important;
+    line-height: 120%!important;
+  }
+  .tiny-h-font {
+    font-size: 200%!important;
+    line-height: 120%!important;
+  }
+  .tiny-height {
+    height: 240%;
+  }
+  .tiny-squeezed {
+    padding: 0!important;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 120%!important;
+    line-height: 120%!important;
+  }
+  ::-moz-placeholder {
+    font-size: 120%!important;
+    line-height: 120%!important;
+  } /* firefox 19+ */
+  :-ms-input-placeholder {
+    font-size: 120%!important;
+    line-height: 120%!important;
+  } /* ie */
+  input:-moz-placeholder {
+    font-size: 120%!important;
+    line-height: 120%!important;
+  }
+}
