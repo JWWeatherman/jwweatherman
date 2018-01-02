@@ -1,5 +1,5 @@
 <template>
-  <b-row id="md-app" class="text-center">
+  <b-row id="md-app" class="text-center" v-if="mdState !== null">
     <b-alert :show="dismissCountDown"
              dismissible
              :variant="copyStatus"
@@ -59,17 +59,19 @@
   export default {
     name: 'Main',
     beforeMount () {
-      const c = {
-        COMPANY_NAME: `JW Weatherman`,
-        PUBLISH_DATE: `October 2017`,
-        DESCRIPTION: `A security review of the Bitcoin cryptocurrency`,
-        TITLE: `Bitcoin Threat Model`,
-        FAVICON: `http://res.cloudinary.com/loristeeth/image/upload/v1511128064/Small_btc_logo__y588lv.png`,
-        QUOTE: `With e-currency based on cryptographic proof, without the need to trust a third party middleman, money can be secure and transactions effortless.`,
-        HASHTAGS: `#bitcoin, #btc, #blockchain, #cryptocurrency, #forex, #crypto, #free`,
-        REPO_URL: 'https://api.github.com/repos/JWWeatherman/bitcoin_security_threat_model/readme'
-      }
-      this.mdState = new MdState({config: c}, this.processPages)
+      utils.watcher(() => {
+        return !Object.keys(this.configs).length
+      }, () => {
+        const location = window.location.href
+        this.threatModel = location.split('/#/')[1].split('#')[0]
+        const config = this.configs[this.threatModel]
+        if (config) {
+          //        console.log(config)
+          this.mdState = new MdState({config: config}, this.processPages)
+        } else {
+          this.$router.push('/')
+        }
+      })
     },
     data () {
       return {
@@ -80,10 +82,14 @@
         copyStatus: null,
         dismissSecs: 2,
         dismissCountDown: 0,
-        copyMessage: `Copied to clipboard!`
+        copyMessage: `Copied to clipboard!`,
+        threatModel: ''
       }
     },
     computed: {
+      configs () {
+        return this.$store.getters.getDocumentConfigs
+      },
       toc () {
         return this.mdState.tableContents
       },
@@ -99,7 +105,7 @@
     },
     methods: {
       copyClipboard (id) {
-        this.clipboardLink = window.location.href.split('#')[0] + '#/threat_model#' + id
+        this.clipboardLink = window.location.href.split('#')[0] + '#/' + this.threatModel + '#' + id
 
         const inp = document.createElement('input')
         document.body.appendChild(inp)
@@ -137,7 +143,7 @@
           * */
           const location = window.location.href
           const gotoEle = location.split('#').pop()
-          if (gotoEle !== '/threat_model') {
+          if (gotoEle !== '/' + this.threatModel) {
             utils.scrollToEle(this, '#' + gotoEle)
           }
 

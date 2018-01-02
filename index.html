@@ -25,6 +25,12 @@
   </head>
   <body>
     <div id="app"></div>
+    <script type="text/javascript">
+      String.prototype.replaceAll = function (search, replacement) {
+        var target = this
+        return target.replace(new RegExp(search, 'g'), replacement)
+      }
+    </script>
     <!-- built files will be auto injected -->
   </body>
 </html>

@@ -1,5 +1,3 @@
-import base64 from 'js-base64'
-import marked from 'marked'
 import toc from './toc'
 import utils from './utils'
 
@@ -7,20 +5,6 @@ class BuildPage {
   constructor () {
     this.state = null
     this.footnoteId = 1
-  }
-
-  /*
-  * Split md contents into pages on '---' horizontal rule
-  * @var markIt converts md to html
-  * @var addPageNum adds page-num attr to each element on page
-  * @var reStringIt converts html back into string
-  *
-  * slice at end is only needed if user puts hr at end of md, THIS MAY NEED TO BE REMOVED
-  * */
-  createPages (md) {
-    return md.split('---').map((md, ind) => {
-      return marked(md, { sanitize: true })
-    }).slice(0, -1)
   }
 
   /*
@@ -227,11 +211,8 @@ class BuildPage {
     document.head.appendChild(linkTag)
   }
 
-  init ({state, mdBlob}, cb) {
-    const b64 = base64.Base64
+  init ({state}, cb) {
     this.state = state
-    this.state.md = b64.decode(mdBlob)
-    this.state.markupList = this.createPages(this.state.md)
 
     this.state.markupList.splice(2, 0, this.addRevisionHistory(this.state.config.REPO_URL))
     this.state.markupList = this.addPageNumberToElements(this.state.markupList)

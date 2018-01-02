@@ -32,9 +32,13 @@ export default new Router({
       component: Home
     },
     {
-      path: '/threat_model',
+      path: '/:threatModel',
       name: 'ThreatModel',
       component: MarkdownRenderer
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })
