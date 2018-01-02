@@ -1276,7 +1276,7 @@ html.w-mod-js *[data-ix="scale-on-scroll"] {
   width: 30px;
 }
 
-.fa:before {
+#home .fa {
   color: white;
 }
 

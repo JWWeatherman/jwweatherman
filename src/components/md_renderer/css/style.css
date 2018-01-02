@@ -7,6 +7,7 @@
   font-size: 14px;
   height: auto;
   display: flex;
+  min-height: 100vh;
 }
 /*Main.vue*/
 .hover-color {
@@ -188,7 +189,7 @@
   text-align: center;
   border-radius: 5px;
   margin: 0;
-  color: inherit!important;
+  color: #ffffff;
 }
 
 .social-zone .fa:hover {
@@ -214,15 +215,15 @@
   }
 }
 
-.text-center .alert {
+#md-app.text-center .alert {
   z-index: 10000;
   position: fixed;
-  top: 50px;
-  left: 50%;
+  top: 20px;
+  right: 0;
   transform: translate(-50%, 0);
 }
 
-.footer {
+#md-app .footer {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -231,15 +232,15 @@
   margin-top: 40px;
 }
 
-.footer-left > *, .footer-left > .resources > * {
+#md-app .footer-left > *, #md-app .footer-left > .resources > * {
   display: block;
 }
 
-.footer-left > .reddit {
+#md-app .footer-left > .reddit {
   padding: 20px 0 20px 0;
 }
 
-.footer-left > .resources {
+#md-app .footer-left > .resources {
   font-size: 10px;
   text-decoration: underline;
 }
@@ -249,7 +250,7 @@ strong > em {
   font-style: normal!important;
 }
 
-.page-footer {
+#md-app .page-footer {
   display: flex;
   flex-direction: column;
   margin-top: 150px;

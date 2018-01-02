@@ -1,54 +1,55 @@
 <template>
-  <b-row id="md-app" class="text-center" v-if="mdState !== null">
-    <b-alert :show="dismissCountDown"
-             dismissible
-             :variant="copyStatus"
-             @dismissed="dismissCountdown=0"
-             @dismiss-count-down="countDownChanged">
-      <p>{{ clipboardLink }}</p>
-      <hr>
-      <p>{{ copyMessage }}</p>
-    </b-alert>
-    <b-col id="text-zone" sm="12"	md="10"	lg="8"	xl="6">
-      <div id="pages" cols="12">
+    <b-row id="md-app" class="text-center fadeIn" v-if="mdState !== null">
+      <b-alert :show="dismissCountDown"
+               dismissible
+               :variant="copyStatus"
+               @dismissed="dismissCountdown=0"
+               @dismiss-count-down="countDownChanged"
+                class="animated bounceInDown">
+        <p>{{ clipboardLink }}</p>
+        <hr>
+        <p><strong>{{ copyMessage }}</strong></p>
+      </b-alert>
+      <b-col id="text-zone" sm="12"	md="10"	lg="8"	xl="6">
+        <div id="pages" cols="12">
 
-          <div
-            v-for="(id, ind) in hTagIds"
-            :key="'social:' + ind"
-            class="social-zone"
-            :id="'social-' + id"
-            @click="scrollToo(id)"
-          >
-            <Social
-              :state="mdState"
-              :id="id"
-            ></Social>
-            <span>
-              <i class="fa fa-link"
-                 title="Clipboard"
-                 @click="copyClipboard(id)"
-              ></i>
-              <!--v-b-tooltip.hover-->
-            </span>
+            <div
+              v-for="(id, ind) in hTagIds"
+              :key="'social:' + ind"
+              class="social-zone"
+              :id="'social-' + id"
+              @click="scrollToo(id)"
+            >
+              <Social
+                :state="mdState"
+                :id="id"
+              ></Social>
+              <span>
+                <i class="fa fa-link"
+                   title="Clipboard"
+                   @click="copyClipboard(id)"
+                ></i>
+                <!--v-b-tooltip.hover-->
+              </span>
+            </div>
+
+          <div id="page-actual">
+            <b-col
+              v-for="(md, ind) in markupList"
+              class="page"
+              :class="'page-' + ind"
+              :key="'page:' + ind"
+              id="md-body"
+              v-html="md"
+            ></b-col>
           </div>
-
-        <div id="page-actual">
-          <b-col
-            v-for="(md, ind) in markupList"
-            class="page"
-            :class="'page-' + ind"
-            :key="'page:' + ind"
-            id="md-body"
-            v-html="md"
-          ></b-col>
         </div>
-      </div>
-      <text id="clipboardTextDummy"></text>
-      <RightBar
-        :state="mdState"
-      ></RightBar>
-    </b-col>
-  </b-row>
+        <text id="clipboardTextDummy"></text>
+        <RightBar
+          :state="mdState"
+        ></RightBar>
+      </b-col>
+    </b-row>
 </template>
 <script>
   import Social from './Social'
@@ -80,7 +81,7 @@
         hTagIds: [],
         clipboardLink: '',
         copyStatus: null,
-        dismissSecs: 2,
+        dismissSecs: 5,
         dismissCountDown: 0,
         copyMessage: `Copied to clipboard!`,
         threatModel: ''
