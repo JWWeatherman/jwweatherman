@@ -69,6 +69,8 @@
         if (config) {
           //        console.log(config)
           this.mdState = new MdState({config: config}, this.processPages)
+          console.log(config.FAVICON)
+          this.faviconAdder(config.FAVICON)
         } else {
           this.$router.push('/')
         }
@@ -105,6 +107,12 @@
       }
     },
     methods: {
+      faviconAdder (favicon) {
+        /*
+        * adds favicon
+        * */
+        $('head').prepend($(`<link href="${favicon}" rel="shortcut icon" type="image/x-icon">`))
+      },
       copyClipboard (id) {
         this.clipboardLink = window.location.href.split('#')[0] + '#/' + this.threatModel + '#' + id
 
