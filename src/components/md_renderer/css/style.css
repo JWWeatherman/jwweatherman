@@ -1,3 +1,27 @@
+/*config styles*/
+:root{
+  --heading-page-background-color: #fff;
+  --heading-page-h1-color: #2c3e50;
+  --heading-page-h2-color: #2c3e50;
+  --heading-page-h3-color: #f5922f;
+  --heading-page-h4-color: #2c3e50;
+  --heading-page-jumbotron-color: #2c3e50;
+
+  --page-background-color: #fff;
+  --page-color: #2c3e50;
+  --page-h1-color: #f7931a;
+  --page-h2-color: #5b5b5b;
+  --page-h3-color: #2c3e50;
+  --page-h4-color: #2c3e50;
+  --page-bold-color: #2c3e50;
+
+  --page-page-header-background-color: #fff2ce;
+  --page-page-header-color: #2c3e50;
+  --page-page-footer-background-color: #fff2ce;
+  --page-page-footer-color: #f7931a;
+  --page-page-footer-resources-color: #2c3e50;
+}
+
 #md-app {
   background-color: #525659;
   font-family: 'open sans', Helvetica, Arial, sans-serif;
@@ -11,7 +35,8 @@
 }
 /*Main.vue*/
 .hover-color {
-  background-color: rgb(255, 242, 206);
+  color: var(--page-page-header-color);
+  background-color: var(--page-page-header-background-color);
 }
 
 #text-zone {
@@ -45,16 +70,17 @@
   font-size: 14px;
 }
 
-.page:nth-child(n+4) a {
-  color: #f7931a!important;
+.page a {
+  color: var(--page-page-footer-resources-color)!important;
 }
 
 .page {
+  background-color: var(--page-background-color);
+  color: var(--page-color);
   display: flex;
   flex-direction: column;
   margin-bottom: 70px;
   border: 1px solid rgb(221, 221, 221);
-  background-color: rgb(250, 251, 252);
   min-height: 1058px!important;
   padding: 45px 15px 0 15px;
   box-shadow: 0 0 20px #000;
@@ -77,14 +103,27 @@
   font-size: 28px;
 }
 
+.page:not(:first-child) h1 {
+  color: var(--page-h1-color);
+}
+
+.page:not(:first-child) h2 {
+  color: var(--page-h2-color);
+}
+
+.page:not(:first-child) h3 {
+  color: var(--page-h3-color);
+}
+
+.page:not(:first-child) h4 {
+  color: var(--page-h4-color);
+}
+
 .page h2 {
   color: #5b5b5b;
   font-size: 22px;
 }
 
-.page:not(:first-child) h1 {
-  color: #f7931a;
-}
 
 .page ul ~ li  {
   font-weight: bold;
@@ -98,13 +137,13 @@
   font-family: "titillium web", Helvetica, Arial, sans-serif;;
   font-size: 20px;
   font-weight: bold;
-  color: #f7931a;
   float: right;
   margin-bottom: 20px;
 }
 
 .page .navbar-default {
-  background-color: rgb(255, 242, 206);
+  background-color: var(--page-page-header-background-color);
+  color: var(--page-page-header-color);
 }
 
 .page .navbar-default > * {
@@ -121,7 +160,12 @@
   font-family: 'courier new', Helvetica, Arial, sans-serif;
 }
 
+.page-0 {
+  background-color: var(--heading-page-background-color);
+}
+
 .page-0 .jumbotron {
+  color: var(--heading-page-jumbotron-color);
   background-color: transparent;
   padding: 4rem 0 80px 0;
   position: absolute;
@@ -133,19 +177,25 @@
 }
 
 .page-0 h1 {
+  color: var(--heading-page-h1-color);
   font-size: 36px;
   margin-bottom: 0!important;
 }
 
-.page-0 h3 {
-  margin-bottom: 0!important;
-  font-size: 18px;
-  color: rgb(245, 146, 47);
-  font-family: "open sans", Helvetica, Arial, sans-serif;
+.page-0 h2 {
+  color: var(--heading-page-h2-color);
 }
 
 .page-0 h3 {
+  margin-bottom: 0!important;
   margin-top: 0;
+  font-size: 18px;
+  color: var(--heading-page-h3-color);
+  font-family: "open sans", Helvetica, Arial, sans-serif;
+}
+
+.page-0 h4 {
+  color: var(--heading-page-h4-color);
 }
 
 .page-2 ul {
@@ -220,10 +270,19 @@
   position: fixed;
   top: 20px;
   right: 0;
-  transform: translate(-50%, 0);
 }
 
-#md-app .footer {
+.page .page-footer {
+  color: var(--page-page-footer-color);
+  display: flex;
+  flex-direction: column;
+  margin-top: 150px;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.page .footer {
+  background-color: green;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -232,70 +291,25 @@
   margin-top: 40px;
 }
 
-#md-app .footer-left > *, #md-app .footer-left > .resources > * {
+.page .footer-left > *, #md-app .footer-left > .resources > * {
   display: block;
 }
 
-#md-app .footer-left > .reddit {
+.page .footer-left > .reddit {
   padding: 20px 0 20px 0;
 }
 
-#md-app .footer-left > .resources {
+.page .footer-left > .resources {
   font-size: 10px;
   text-decoration: underline;
 }
 
-strong > em {
+.page strong > em {
   font-family: 'open sans', Helvetica, Arial, sans-serif;
   font-style: normal!important;
+  color: var(--page-bold-color);
 }
 
-#md-app .page-footer {
-  display: flex;
-  flex-direction: column;
-  margin-top: 150px;
-  flex-grow: 1;
-  justify-content: flex-end;
-}
-
-/*NavBar.vue*/
-#top-nav.navbar {
-  background-color: rgb(51, 55, 57);
-  padding: 0!important;
-}
-
-#top-nav.navbar-brand {
-  font-size: 14px!important;
-}
-
-#top-nav.fa {
-  color: #ffffff!important;
-}
-
-#top-nav#nav_text_collapse .fa {
-  cursor: pointer;
-}
-
-.page-num-tracker {
-  text-align: right;
-}
-/*Footer.vue*/
-#bottom-nav.navbar {
-  padding: 0;
-}
-#bottom-nav.progress {
-  width: 100%;
-  display: flex;
-  align-self: baseline;
-  border-radius: 0;
-}
-#bottom-nav.fa-arrow-circle-up {
-  position: absolute;
-  right: 5px;
-  bottom: 20px;
-  font-size: 40px;
-  cursor: pointer;
-}
 /*RightBar.vue*/
 .right-bar {
   position: fixed;

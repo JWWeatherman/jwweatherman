@@ -30,6 +30,7 @@ class MdState {
   * slice at end is only needed if user puts hr at end of md, THIS MAY NEED TO BE REMOVED
   * */
   createPages (md) {
+    console.log(md)
     return md.split('---').slice(0, -1)
   }
   markPages (list) {

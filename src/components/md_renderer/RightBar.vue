@@ -26,7 +26,7 @@
         return ''
       }
     },
-    props: ['state']
+    props: ['state', 'threatModel']
   }
 </script>
 <style scoped>

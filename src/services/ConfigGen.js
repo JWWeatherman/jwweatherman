@@ -22,8 +22,8 @@ class ConfigGen {
       .then(res => {
         const b64 = base64.Base64
         const blob = res.body.content
-        const configs = b64.decode(blob)
-        this.$store.dispatch('updateDocumentConfigs', JSON.parse(configs))
+        const configs = JSON.parse(b64.decode(blob))
+        this.$store.dispatch('updateDocumentConfigs', configs)
         // console.log(this.$store.getters.getDocumentConfigs)
         cb()
       })

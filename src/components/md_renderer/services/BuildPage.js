@@ -1,10 +1,21 @@
 import toc from './toc'
 import utils from './utils'
+import { _ } from 'underscore'
 
 class BuildPage {
   constructor () {
     this.state = null
     this.footnoteId = 1
+  }
+
+  /*
+  * apply threat model styles
+  * */
+  applyStyles () {
+    const styles = this.state.config.STYLE
+    _.mapObject(styles, (style, name) => {
+      document.documentElement.style.setProperty(`--${name}`, style)
+    })
   }
 
   /*
@@ -213,6 +224,8 @@ class BuildPage {
 
   init ({state}, cb) {
     this.state = state
+
+    this.applyStyles()
 
     this.state.markupList.splice(2, 0, this.addRevisionHistory(this.state.config.REPO_URL))
     this.state.markupList = this.addPageNumberToElements(this.state.markupList)

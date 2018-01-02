@@ -5,7 +5,7 @@
                :variant="copyStatus"
                @dismissed="dismissCountdown=0"
                @dismiss-count-down="countDownChanged"
-                class="animated bounceInDown">
+               class="animated bounceInRight">
         <p>{{ clipboardLink }}</p>
         <hr>
         <p><strong>{{ copyMessage }}</strong></p>
@@ -46,6 +46,7 @@
         </div>
         <text id="clipboardTextDummy"></text>
         <RightBar
+          :threatModel="threatModel"
           :state="mdState"
         ></RightBar>
       </b-col>
@@ -69,7 +70,6 @@
         if (config) {
           //        console.log(config)
           this.mdState = new MdState({config: config}, this.processPages)
-          console.log(config.FAVICON)
           this.faviconAdder(config.FAVICON)
         } else {
           this.$router.push('/')
@@ -83,7 +83,7 @@
         hTagIds: [],
         clipboardLink: '',
         copyStatus: null,
-        dismissSecs: 5,
+        dismissSecs: 3,
         dismissCountDown: 0,
         copyMessage: `Copied to clipboard!`,
         threatModel: ''
@@ -182,10 +182,6 @@
           $page2.find('a').on('click', function () {
             const name = $(this).attr('name')
             utils.scrollToEle(dis, '#' + name)
-          }).on('mouseover', function () {
-            $(this).parent().addClass('hover-color')
-          }).on('mouseleave', function () {
-            $(this).parent().removeClass('hover-color')
           })
 
           /*
