@@ -76,6 +76,7 @@ export default (function () {
     var $ele = options.$ele
 
     var ret = document.createElement('ul')
+    ret.className += 'toc'
     var wrapper = ret
     var lastLi = null
 

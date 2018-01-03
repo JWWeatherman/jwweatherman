@@ -70,7 +70,7 @@
   font-size: 14px;
 }
 
-.page a {
+.page:not(:nth-child(2)) a {
   color: var(--page-page-footer-resources-color)!important;
 }
 
@@ -81,7 +81,7 @@
   flex-direction: column;
   margin-bottom: 70px;
   border: 1px solid rgb(221, 221, 221);
-  min-height: 1058px!important;
+  min-height: 900px!important;
   padding: 45px 15px 0 15px;
   box-shadow: 0 0 20px #000;
   overflow: hidden;
@@ -198,26 +198,28 @@
   color: var(--heading-page-h4-color);
 }
 
-.page-2 ul {
+.toc {
   padding-left: 0;
   list-style: none;
 }
 
-.page-2 > ul > li > a {
+.toc > li {
   font-weight: bold;
   font-family: 'open sans', Helvetica, Arial, sans-serif;
 }
 
-.page-2 ul li > ul {
+.toc li > ul {
   padding-left: 20px;
+  list-style: none;
+  font-weight: normal;
 }
 
-.page-2 ul li > ul > li > ul {
+.toc li > ul > li > ul {
   border-top: 1px solid #000;
   padding-left: 20px;
 }
 
-.page-2 ul li a {
+.toc li a {
   color: #000;
   display: flex;
   justify-content: space-between;
@@ -276,13 +278,13 @@
   color: var(--page-page-footer-color);
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 60px;
   flex-grow: 1;
   justify-content: flex-end;
 }
 
 .page .footer {
-  background-color: green;
+  background-color: var(--page-page-footer-background-color);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -291,8 +293,9 @@
   margin-top: 40px;
 }
 
-.page .footer-left > *, #md-app .footer-left > .resources > * {
+.resources > * {
   display: block;
+  color: var(--page-page-footer-color);
 }
 
 .page .footer-left > .reddit {
@@ -302,6 +305,7 @@
 .page .footer-left > .resources {
   font-size: 10px;
   text-decoration: underline;
+  color: var(--page-page-footer-color);
 }
 
 .page strong > em {

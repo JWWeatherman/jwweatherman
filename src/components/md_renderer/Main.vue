@@ -10,7 +10,7 @@
         <hr>
         <p><strong>{{ copyMessage }}</strong></p>
       </b-alert>
-      <b-col id="text-zone" sm="12"	md="10"	lg="8"	xl="6">
+      <b-col id="text-zone" sm="12"	md="11"	lg="10"	xl="9">
         <div id="pages" cols="12">
 
             <div
@@ -70,7 +70,6 @@
         if (config) {
           //        console.log(config)
           this.mdState = new MdState({config: config}, this.processPages)
-          this.faviconAdder(config.FAVICON)
         } else {
           this.$router.push('/')
         }
@@ -107,12 +106,6 @@
       }
     },
     methods: {
-      faviconAdder (favicon) {
-        /*
-        * adds favicon
-        * */
-        $('head').prepend($(`<link href="${favicon}" rel="shortcut icon" type="image/x-icon">`))
-      },
       copyClipboard (id) {
         this.clipboardLink = window.location.href.split('#')[0] + '#/' + this.threatModel + '#' + id
 
@@ -178,7 +171,7 @@
           /*
           * dynamically creates click handlers for toc a tags
           * */
-          const $page2 = $('.page-2')
+          const $page2 = $('.page-1')
           $page2.find('a').on('click', function () {
             const name = $(this).attr('name')
             utils.scrollToEle(dis, '#' + name)

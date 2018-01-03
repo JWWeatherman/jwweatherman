@@ -1,5 +1,4 @@
 import toc from './toc'
-import utils from './utils'
 import { _ } from 'underscore'
 
 class BuildPage {
@@ -26,7 +25,7 @@ class BuildPage {
     let h2Level = 0
     let h3Level = 0
     let h4Level = 0
-    const addEm = markupList.slice(3).map(page => {
+    const addEm = markupList.slice(this.state.introEnd).map(page => {
       const $page = $(page)
       $page.each((_, ele) => {
         const $ele = $(ele)
@@ -52,7 +51,7 @@ class BuildPage {
       })
       return $('<div>').append($page).remove().html()
     })
-    const output = markupList.slice(0, 3).concat(addEm)
+    const output = markupList.slice(0, this.state.introEnd).concat(addEm)
     return output
   }
 
@@ -113,26 +112,6 @@ class BuildPage {
         <div class="footer-right tiny-h-font small-h-font medium-h-font"></div>
       </div>`
     }))
-  }
-
-  /*
-  * place reddit link to footer
-  * */
-  addRedditLink ({markupList, REDDIT_SUBMIT, TITLE}) {
-    return markupList.map((page, ind) => {
-      const $page = $(page)
-      if (ind > 2) {
-        const $ele = $page.first()
-        const id = $ele.attr('id')
-        const subTitle = $ele.text()
-        const SUBMIT_URL = REDDIT_SUBMIT(id, utils.makeTitle(TITLE, subTitle))
-        const $footerLeft = $page.last().find('.footer-left')
-        $footerLeft.append(`<div class="reddit"><a href="${SUBMIT_URL}" class="reddit-a-tag" target="_blank" title="Join Discussion on Reddit">
-          <img src="//www.redditstatic.com/spreddit1.gif" alt="submit to reddit" border="0" />  Discussion on r/Bitcoin
-        </a></div>`)
-      }
-      return $('<div>').append($page).remove().html()
-    })
   }
 
   /*
@@ -215,11 +194,7 @@ class BuildPage {
   * add favicon
   * */
   addFavicon (FAVICON) {
-    const linkTag = document.createElement('link')
-    linkTag.setAttribute('rel', 'shortcut icon')
-    linkTag.setAttribute('type', 'image/png')
-    linkTag.setAttribute('href', FAVICON)
-    document.head.appendChild(linkTag)
+    $('head').prepend($(`<link href="${FAVICON}" rel="shortcut icon" type="image/x-icon">`))
   }
 
   init ({state}, cb) {
@@ -227,13 +202,13 @@ class BuildPage {
 
     this.applyStyles()
 
-    this.state.markupList.splice(2, 0, this.addRevisionHistory(this.state.config.REPO_URL))
+    this.state.markupList.splice(1, 0, this.addRevisionHistory(this.state.config.REPO_URL))
     this.state.markupList = this.addPageNumberToElements(this.state.markupList)
 
     this.state.markupList = this.numberHeadings(this.state.markupList)
-    this.state.tableContents = this.createToc(this.state.markupList[2].concat(this.state.markupList.slice(3)))
-    this.state.markupList.splice(2, 0, $(this.state.tableContents).prop('outerHTML'))
-    this.state.markupList[2] = this.addHeadingToToc(this.state.markupList[2])
+    this.state.tableContents = this.createToc(this.state.markupList[1].concat(this.state.markupList.slice(2)))
+    this.state.markupList.splice(1, 0, $(this.state.tableContents).prop('outerHTML'))
+    this.state.markupList[1] = this.addHeadingToToc(this.state.markupList[1])
     this.state.markupList = this.addPageFooter(this.state.markupList)
     this.state.markupList = this.addResourceLinks(this.state.markupList)
     this.state.markupList = this.addPageNumbers(this.state.markupList)
@@ -243,9 +218,6 @@ class BuildPage {
     this.addTitle(this.state.config.TITLE)
     this.addFavicon(this.state.config.FAVICON)
 
-    if (this.state.config.REDDIT_LINK_WANTED) {
-      this.state.markupList = this.addRedditLink({markupList: this.state.markupList, REDDIT_SUBMIT: this.state.config.REDDIT_SUBMIT, TITLE: this.state.config.TITLE})
-    }
     cb()
   }
 }

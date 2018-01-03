@@ -16,7 +16,7 @@ export default {
   },
   scrollTop (context) {
     $('html, body').animate({
-      scrollTop: $('.page-2').offset().top
+      scrollTop: $('.page-1').offset().top
     }, 1500, () => {
       context.$router.push('/' + context.threatModel)
     })
