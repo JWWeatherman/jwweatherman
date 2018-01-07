@@ -23,6 +23,11 @@
       })
 
       /*
+      * updates page title
+      * */
+      document.title = 'JW | End Slavery'
+
+      /*
       * adds favicons
       * */
       const icons = [
@@ -48,3 +53,8 @@
     }
   }
 </script>
+<style lang="css" scoped>
+  @import '../css/normalize.css';
+  @import '../css/weather-the-storm.webflow.css';
+  @import '../css/webflow.css';
+</style>

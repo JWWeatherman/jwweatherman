@@ -1,5 +1,5 @@
 <template>
-    <b-row id="md-app" class="text-center fadeIn" v-if="mdState !== null">
+    <div id="md-app" class="text-center fadeIn" v-if="mdState !== null">
       <b-alert :show="dismissCountDown"
                dismissible
                :variant="copyStatus"
@@ -10,7 +10,7 @@
         <hr>
         <p><strong>{{ copyMessage }}</strong></p>
       </b-alert>
-      <b-col id="text-zone" sm="12"	md="11"	lg="10"	xl="9">
+      <div id="text-zone" class="row">
         <div id="pages" cols="12">
 
             <div
@@ -35,12 +35,43 @@
 
           <div id="page-actual">
             <b-col
-              v-for="(md, ind) in markupList"
-              class="page"
+              v-for="(hp, ind) in headingPage"
+              class="page heading"
+              :class="'heading-' + ind"
+              :key="'heading-' + ind"
+              v-html="hp"
+            >
+            </b-col>
+            <b-col
+              v-for="(ip, ind) in introductionPage"
+              class="page introduction"
+              :class="'introduction-' + ind"
+              :key="'introduction-' + ind"
+              v-html="ip"
+            >
+            </b-col>
+            <b-col
+              v-for="(rp, ind) in revisionHistoryPage"
+              class="page revision"
+              :class="'revision-' + ind"
+              :key="'revision-' + ind"
+              v-html="rp"
+            >
+            </b-col>
+            <b-col
+              v-for="(tp, ind) in tableOfContentsPage"
+              class="page table-of-contents"
+              :class="'table-of-contents-' + ind"
+              :key="'table-of-contents-' + ind"
+              v-html="tp"
+            >
+            </b-col>
+            <b-col
+              v-for="(mp, ind) in mainContent"
+              class="page main-content"
               :class="'page-' + ind"
               :key="'page:' + ind"
-              id="md-body"
-              v-html="md"
+              v-html="mp"
             ></b-col>
           </div>
         </div>
@@ -49,8 +80,8 @@
           :threatModel="threatModel"
           :state="mdState"
         ></RightBar>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
 </template>
 <script>
   import Social from './Social'
@@ -89,20 +120,26 @@
       }
     },
     computed: {
+      configTitle () {
+        return 'Threat Model'
+      },
       configs () {
         return this.$store.getters.getDocumentConfigs
       },
-      toc () {
-        return this.mdState.tableContents
+      headingPage () {
+        return this.mdState.headingPage
       },
-      markupList () {
-        return this.mdState.markupList
+      introductionPage () {
+        return this.mdState.introduction
       },
-      pageHeading () {
-        return this.mdState.pageHeading
+      revisionHistoryPage () {
+        return this.mdState.revisionHistory
       },
-      headingPageHeading () {
-        return this.mdState.headingPageHeading
+      tableOfContentsPage () {
+        return this.mdState.tableOfContents
+      },
+      mainContent () {
+        return this.mdState.mainContent
       }
     },
     methods: {
@@ -137,6 +174,7 @@
       },
       processPages () {
         const dis = this
+
         setTimeout(() => {
           const $page = $('.page')
 
@@ -155,27 +193,17 @@
           $page.find('img').addClass('img-fluid')
 
           /*
-          * places page headers to all pages
-          * */
-          $page.find('.navbar').remove()
-          $page.find('pre').remove()
-          $page.not(':first').prepend(this.pageHeading)
-
-          /*
-          * appends heading to heading page
-          * */
-          const $page0 = $('.page-0')
-          $page0.find('.jumbotron').remove()
-          $page0.append(this.headingPageHeading)
-
-          /*
           * dynamically creates click handlers for toc a tags
           * */
-          const $page2 = $('.page-1')
-          $page2.find('a').on('click', function () {
+          const $tableOfContents = $('.table-of-contents')
+          $tableOfContents.find('a').on('click', function () {
             const name = $(this).attr('name')
             utils.scrollToEle(dis, '#' + name)
           })
+
+          /*
+          * split toc page
+          * */
 
           /*
           * get all htag ids to for popover to be associated with
@@ -227,7 +255,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import './css/style.css';
   @import './css/media.css';
 </style>

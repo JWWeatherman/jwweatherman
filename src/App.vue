@@ -26,8 +26,4 @@
     name: 'app'
   }
 </script>
-<style lang="css">
-  @import './css/normalize.css';
-  @import './css/weather-the-storm.webflow.css';
-  @import './css/webflow.css';
-</style>
+

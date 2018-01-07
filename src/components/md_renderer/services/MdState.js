@@ -4,8 +4,6 @@ import VueResource from 'vue-resource'
 import base64 from 'js-base64'
 import marked from 'marked'
 
-import { _ } from 'underscore'
-
 Vue.use(VueResource)
 
 class MdState {
@@ -14,9 +12,12 @@ class MdState {
     this.initializeState(cb)
   }
 
-  markupList = []
-  md = ``
-  tableContents = ``
+  headingPage = []
+  introduction = []
+  mainContent = []
+  revisionHistory = []
+  tableOfContents = []
+
   pageHeading = ``
   headingPageHeading = ``
   heading = ``
@@ -32,27 +33,59 @@ class MdState {
   *
   * slice at end is only needed if user puts hr at end of md, THIS MAY NEED TO BE REMOVED
   * */
-  groupByInt (list, groupSize) {
-    let groups = []
-    return () => {
-      while (list.length) {
-        groups.push(list.splice(0, groupSize).join('\n').concat('\n'))
+  makePages (list, groupSize) {
+    let rowCount = 0
+    let pages = []
+    let rowAccum = []
+
+    function updateCount (pageRow) {
+      if (pageRow.indexOf('#') >= 0) {
+        rowCount += 38 / 16
+      } else if (pageRow.indexOf('##') >= 0) {
+        rowCount += 30 / 16
+      } else if (pageRow.indexOf('###') >= 0) {
+        rowCount += 28 / 16
+      } else if (pageRow.indexOf('####') >= 0) {
+        rowCount += 26 / 16
+      } else if (pageRow.indexOf('**') >= 0 || pageRow.indexOf('***') >= 0) {
+        rowCount += 22 / 16
+      } else if (pageRow !== undefined) {
+        rowCount += 16 / 16
       }
-      return groups
     }
+
+    function pushRow (row) {
+      rowAccum.push(row)
+    }
+
+    while (list.length) {
+      const row = list.shift()
+      updateCount(row)
+      pushRow(row)
+
+      if (rowCount >= groupSize || !list.length) {
+        rowCount = 0
+        pages.push(rowAccum.join('\n'))
+        rowAccum = []
+      }
+    }
+    return pages
   }
+
   createPages (md) {
-    const pagesOneAndTwo = md.split('---').slice(0, 2)
-    const heading = pagesOneAndTwo[0]
-    let introRaw = pagesOneAndTwo[1].split('\n')
-    let intro = this.groupByInt(introRaw, 55)()
-    this.introEnd = intro.length + 2
-    let rest = md.split('---').slice(2).join('').split('\n')
-    let pages = this.groupByInt(rest, 55)()
-    pages.unshift([heading, intro])
-    // console.log(pages)
-    return _.flatten(pages)
+    const pageInSections = md.split('---')
+    const headingPage = pageInSections.shift()
+    const introduction = pageInSections.shift()
+    const mainContent = pageInSections.join('---')
+
+    const sections = {}
+    sections.headingPage = this.markPages(this.makePages(headingPage.split('\n'), 25))
+    sections.introduction = this.markPages(this.makePages(introduction.split('\n'), 25))
+    sections.mainContent = this.markPages(this.makePages(mainContent.split('\n'), 25))
+
+    return sections
   }
+
   markPages (list) {
     return list.map(l => marked(l, { sanitize: true }))
   }
@@ -63,21 +96,14 @@ class MdState {
         const b64 = base64.Base64
         const blob = res.body.content
         const allMd = b64.decode(blob)
-        const pages = this.createPages(allMd)
-        this.markupList = this.markPages(pages)
-
-        // console.log(JSON.stringify(config, null, 4))
+        const sections = this.createPages(allMd)
+        this.headingPage = sections.headingPage
+        this.introduction = sections.introduction
+        this.mainContent = sections.mainContent
+        // console.log(sections)
         buildPage({state: this}, cb)
       })
       .catch(err => console.error(err))
-  }
-
-  updatePageNumber (number) {
-    this.pageNumber = number
-  }
-
-  updateScrollPosition (percent) {
-    this.scrollPosition = percent
   }
 }
 

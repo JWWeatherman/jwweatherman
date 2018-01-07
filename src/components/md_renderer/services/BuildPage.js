@@ -1,5 +1,5 @@
-import toc from './toc'
 import { _ } from 'underscore'
+import toc from './toc'
 
 class BuildPage {
   constructor () {
@@ -58,7 +58,7 @@ class BuildPage {
   /*
   * add revision history page
   * */
-  addRevisionHistory (REPO_URL) {
+  addRevisionHistory ({REPO_URL}) {
     const repo = REPO_URL.replace('api.', '').replace('repos/', '').split('/').slice(0, -1).join('/')
     return `
       <h1 id="revision-page" style="visibility: hidden">Revision history or to contribute</h1>
@@ -88,16 +88,6 @@ class BuildPage {
     })
   }
 
-  /*
-  * create table of contents
-  * @var tocData concats markupList 2 thru end
-  * @state.tableContents creates table of contents (see ../services/toc.js)
-  * @state.markupList.splice adds toc at index 2 of document
-  * */
-  createToc (tocData) {
-    return toc({$ele: $(`<div>${tocData}</div>`)})
-  }
-
   addHeadingToToc (tocPage) {
     return `<h1>Table of Contents</h1>` + tocPage
   }
@@ -106,12 +96,12 @@ class BuildPage {
   * add footer to pages
   * */
   addPageFooter (markupList) {
-    return markupList.slice(0, 1).concat(markupList.slice(1).map(page => {
+    return markupList.map(page => {
       return page + `<div class="page-footer">
         <div class="footer-left"></div>
         <div class="footer-right tiny-h-font small-h-font medium-h-font"></div>
       </div>`
-    }))
+    })
   }
 
   /*
@@ -141,34 +131,28 @@ class BuildPage {
   * places page number in page footer
   * */
   addPageNumbers (markupList) {
-    return markupList.map((page, ind) => {
+    return markupList.map(page => {
       const $page = $(page)
-      if (ind > 0) {
-        $page.last().find('.footer-right').append(`<span class="page-number">${ind > 0 ? ind : ''}</span>`)
-      }
+      const number = $page.first().attr('page-num')
+      $page.last().find('.footer-right').append(`<span class="page-number">${number}</span>`)
       return $('<div>').append($page).remove().html()
     })
   }
 
   /*
-  * @var $l0 gets the h1 tag from the first page
-  * this will be use to dynamically append a heading onto every page in the doc
-  * */
-  createHeading (headingPage) {
-    const $l0 = $(headingPage)
-    return $l0.filter('h1').text()
-  }
-
-  /*
   * @state.heading is the heading that is appended on each page
   * */
-  createPageHeading ({heading, COMPANY_NAME}) {
+  createPageHeading ({HEADING, COMPANY_NAME}) {
     return `
       <nav variant="faded" class="navbar navbar-default" role="navigation">
-        <b-nav-text class="pull-left">${heading}</b-nav-text>
+        <b-nav-text class="pull-left">${HEADING}</b-nav-text>
         <b-nav-text class="pull-right">${COMPANY_NAME}</b-nav-text>
       </nav>
     `
+  }
+
+  appendPageHeader ({page, heading}) {
+    return heading + page
   }
 
   /*
@@ -187,7 +171,14 @@ class BuildPage {
   * add title to page
   * */
   addTitle (TITLE) {
-    document.title = TITLE
+    const docTitle = document.title.split('|')[0].trim()
+    document.title = ''
+    document.title = docTitle + ' | ' + TITLE
+  }
+
+  appendHeadingPageHeader (header) {
+    const lastOf = this.state.headingPage.pop()
+    this.state.headingPage.push(lastOf + header)
   }
 
   /*
@@ -197,26 +188,49 @@ class BuildPage {
     $('head').prepend($(`<link href="${FAVICON}" rel="shortcut icon" type="image/x-icon">`))
   }
 
+  /*
+   * create table of contents
+   * @var tocData concats mainContent 2 thru end
+   * @state.tableContents creates table of contents (see ../services/toc.js)
+   * @state.mainContent.splice adds toc at index 2 of document
+   * */
+  createTableOfContents (tocData) {
+    const $toc = toc({$ele: $(`<div>${tocData}</div>`)})
+    return $('<div>').append($toc).remove().html()
+  }
+
   init ({state}, cb) {
     this.state = state
+    const config = state.config
 
     this.applyStyles()
 
-    this.state.markupList.splice(1, 0, this.addRevisionHistory(this.state.config.REPO_URL))
-    this.state.markupList = this.addPageNumberToElements(this.state.markupList)
+    // add heading page header (jumbotron)
+    this.appendHeadingPageHeader(this.createHeadingPageHeading({COMPANY_NAME: config.COMPANY_NAME, PUBLISH_DATE: config.PUBLISH_DATE}))
 
-    this.state.markupList = this.numberHeadings(this.state.markupList)
-    this.state.tableContents = this.createToc(this.state.markupList[1].concat(this.state.markupList.slice(2)))
-    this.state.markupList.splice(1, 0, $(this.state.tableContents).prop('outerHTML'))
-    this.state.markupList[1] = this.addHeadingToToc(this.state.markupList[1])
-    this.state.markupList = this.addPageFooter(this.state.markupList)
-    this.state.markupList = this.addResourceLinks(this.state.markupList)
-    this.state.markupList = this.addPageNumbers(this.state.markupList)
-    this.state.heading = this.createHeading(this.state.markupList[0])
-    this.state.pageHeading = this.createPageHeading({heading: this.state.heading, COMPANY_NAME: this.state.config.COMPANY_NAME})
-    this.state.headingPageHeading = this.createHeadingPageHeading({COMPANY_NAME: this.state.config.COMPANY_NAME, PUBLISH_DATE: this.state.config.PUBLISH_DATE})
+    // add revision history
+    this.state.revisionHistory = [this.addRevisionHistory({REPO_URL: config.REPO_URL})]
+
+    // add heading
+    this.state.pageHeading = this.createPageHeading({HEADING: config.TITLE, COMPANY_NAME: config.COMPANY_NAME})
+    this.state.introduction = this.state.introduction.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
+    this.state.mainContent = this.state.mainContent.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
+    this.state.revisionHistory = this.state.revisionHistory.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
+
+    // create main content section
+    this.state.mainContent = this.addPageNumberToElements(this.state.mainContent)
+    this.state.mainContent = this.numberHeadings(this.state.mainContent)
+    this.state.mainContent = this.addPageFooter(this.state.mainContent)
+    this.state.mainContent = this.addResourceLinks(this.state.mainContent)
+    this.state.mainContent = this.addPageNumbers(this.state.mainContent)
+
+    // create table of contents
+    this.state.tableOfContents = [this.createTableOfContents(this.state.mainContent)]
+
+    this.state.introduction = this.addPageFooter(this.state.introduction)
+    this.state.tableOfContents = this.addPageFooter(this.state.tableOfContents)
+
     this.addTitle(this.state.config.TITLE)
-    this.addFavicon(this.state.config.FAVICON)
 
     cb()
   }
