@@ -285,11 +285,12 @@
   }
 }
 
-#md-app #md-app.text-center .alert {
+#md-app.text-center .alert {
   z-index: 10000;
   position: fixed;
   top: 20px;
-  right: 0;
+  right: 10px;
+  padding: 30px;
 }
 
 #md-app .page .page-footer {

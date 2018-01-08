@@ -120,10 +120,6 @@
   text-decoration: none;
 }
 
-#home .button:hover {
-  background-color: #1565c0;
-}
-
 #home .button.w--current {
   background-color: #2e80b6;
 }

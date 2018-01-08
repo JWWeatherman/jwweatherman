@@ -110,19 +110,17 @@ class BuildPage {
   addResourceLinks (markupList) {
     return markupList.map((page, ind) => {
       const $page = $(page)
-      if (ind > 3) {
-        const $footerLeft = $page.last().find('.footer-left')
-        $footerLeft.append('<div class="resources"></div>')
-        $page.find('a').slice(0, this.state.config.REDDIT_LINK_WANTED ? -1 : 100).each((_, ele) => {
-          const $originalEle = $(ele)
-          $originalEle.replaceWith(`<p> ${$originalEle.text()} <span style="font-size: 75%; vertical-align: top; color: #000; text-decoration: underline">${this.footnoteId} </span> </p>`)
-          const href = $originalEle.attr('href')
-          // appends tags to left footer
-          $footerLeft.find('.resources').append(`<a class="tiny-h-font small-h-font medium-h-font" href="${href}" title="${href}" target="_blank"><span style="font-size: 75%; vertical-align: top; color: #000">${this.footnoteId} </span>${href}</a>`)
-          $footerLeft.find('.resources').prepend('<div style="border-top: 0.25px solid #000; width: 30%"></div>')
-          this.footnoteId++
-        })
-      }
+      const $footerLeft = $page.last().find('.footer-left')
+      $footerLeft.append('<div class="resources"></div>')
+      $page.find('a').slice(0, this.state.config.REDDIT_LINK_WANTED ? -1 : 100).each((_, ele) => {
+        const $originalEle = $(ele)
+        $originalEle.replaceWith(`<p> ${$originalEle.text()} <span style="font-size: 75%; vertical-align: top; color: #000; text-decoration: underline">${this.footnoteId} </span> </p>`)
+        const href = $originalEle.attr('href')
+        // appends tags to left footer
+        $footerLeft.find('.resources').append(`<a class="tiny-h-font small-h-font medium-h-font" href="${href}" title="${href}" target="_blank"><span style="font-size: 75%; vertical-align: top; color: #000">${this.footnoteId} </span>${href}</a>`)
+        $footerLeft.find('.resources').prepend('<div style="border-top: 0.25px solid #000; width: 30%"></div>')
+        this.footnoteId++
+      })
       return $('<div>').append($page).remove().html()
     })
   }

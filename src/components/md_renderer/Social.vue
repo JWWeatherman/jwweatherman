@@ -46,7 +46,7 @@
     },
     computed: {
       url () {
-        return window.location.href.split('#')[0] + '#/threat_model#' + this.id
+        return window.location.href
       },
       titleAndSubtitle () {
         const subTitle = $('#' + this.id).text()

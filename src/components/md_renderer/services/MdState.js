@@ -26,12 +26,6 @@ class MdState {
   introEnd = 0
 
   /*
-  * Split md contents into pages on '---' horizontal rule
-  * @var markIt converts md to html
-  * @var addPageNum adds page-num attr to each element on page
-  * @var reStringIt converts html back into string
-  *
-  * slice at end is only needed if user puts hr at end of md, THIS MAY NEED TO BE REMOVED
   * */
   makePages (list, groupSize) {
     let rowCount = 0
@@ -40,17 +34,17 @@ class MdState {
 
     function updateCount (pageRow) {
       if (pageRow.indexOf('#') >= 0) {
-        rowCount += 38 / 16
+        rowCount += (38 / 16) * 2
       } else if (pageRow.indexOf('##') >= 0) {
-        rowCount += 30 / 16
+        rowCount += (30 / 16) * 2
       } else if (pageRow.indexOf('###') >= 0) {
-        rowCount += 28 / 16
+        rowCount += (28 / 16) * 2
       } else if (pageRow.indexOf('####') >= 0) {
-        rowCount += 26 / 16
+        rowCount += (26 / 16) * 2
       } else if (pageRow.indexOf('**') >= 0 || pageRow.indexOf('***') >= 0) {
-        rowCount += 22 / 16
-      } else if (pageRow !== undefined) {
-        rowCount += 16 / 16
+        rowCount += (22 / 16) * 2
+      } else if (pageRow !== undefined && pageRow.length) {
+        rowCount += (16 / 16) * 2
       }
     }
 
@@ -60,12 +54,14 @@ class MdState {
 
     while (list.length) {
       const row = list.shift()
+
       updateCount(row)
       pushRow(row)
 
       if (rowCount >= groupSize || !list.length) {
         rowCount = 0
         pages.push(rowAccum.join('\n'))
+
         rowAccum = []
       }
     }
@@ -79,9 +75,9 @@ class MdState {
     const mainContent = pageInSections.join('---')
 
     const sections = {}
-    sections.headingPage = this.markPages(this.makePages(headingPage.split('\n'), 25))
-    sections.introduction = this.markPages(this.makePages(introduction.split('\n'), 25))
-    sections.mainContent = this.markPages(this.makePages(mainContent.split('\n'), 25))
+    sections.headingPage = this.markPages(this.makePages(headingPage.split('\n'), 18))
+    sections.introduction = this.markPages(this.makePages(introduction.split('\n'), 18))
+    sections.mainContent = this.markPages(this.makePages(mainContent.split('\n'), 18))
 
     return sections
   }
