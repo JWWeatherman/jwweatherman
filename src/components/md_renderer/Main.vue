@@ -217,7 +217,7 @@
           /*
           * adds media queries to elements
           * */
-          const hTags = $('h1, h2, h3, h4')
+          const hTags = $('.page:not(:first-child) h1, .page:not(:first-child) h2, .page:not(:first-child) h3, .page:not(:first-child) h4')
           hTags.each(function () {
             $(this).attr('class', 'tiny-h-font small-h-font medium-h-font')
           })

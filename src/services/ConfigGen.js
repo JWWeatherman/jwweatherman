@@ -19,15 +19,17 @@ class ConfigGen {
   * */
   getConfigs (cb) {
     Vue.http.get(this.configsUrl)
-      .then(res => {
-        const b64 = base64.Base64
-        const blob = res.body.content
-        const configs = JSON.parse(b64.decode(blob))
-        this.$store.dispatch('updateDocumentConfigs', configs)
-        // console.log(this.$store.getters.getDocumentConfigs)
-        cb()
-      })
-      .catch(err => console.error(err))
+        .then(res => {
+          const b64 = base64.Base64
+          const blob = res.body.content
+          const configs = JSON.parse(b64.decode(blob))
+          // console.log(configs)
+          cb(configs)
+        })
+        .catch(err => {
+          console.error(err)
+          cb(null)
+        })
   }
 }
 
