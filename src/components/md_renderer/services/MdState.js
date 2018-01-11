@@ -34,15 +34,17 @@ class MdState {
 
     function updateCount (pageRow) {
       if (pageRow.indexOf('#') >= 0) {
-        rowCount += (38 / 16) * 2
+        rowCount += (38 / 16)
       } else if (pageRow.indexOf('##') >= 0) {
-        rowCount += (30 / 16) * 2
+        rowCount += (30 / 16)
       } else if (pageRow.indexOf('###') >= 0) {
-        rowCount += (28 / 16) * 2
+        rowCount += (28 / 16)
       } else if (pageRow.indexOf('####') >= 0) {
-        rowCount += (26 / 16) * 2
+        rowCount += (26 / 16)
       } else if (pageRow.indexOf('**') >= 0 || pageRow.indexOf('***') >= 0) {
-        rowCount += (22 / 16) * 2
+        rowCount += (22 / 16)
+      } else if (pageRow.indexOf('* ') >= 0) {
+        rowCount += 16 / 16
       } else if (pageRow !== undefined && pageRow.length) {
         rowCount += (16 / 16) * 2
       }

@@ -114,7 +114,7 @@ class BuildPage {
       $footerLeft.append('<div class="resources"></div>')
       $page.find('a').slice(0, this.state.config.REDDIT_LINK_WANTED ? -1 : 100).each((_, ele) => {
         const $originalEle = $(ele)
-        $originalEle.replaceWith(`<p> ${$originalEle.text()} <span style="font-size: 75%; vertical-align: top; color: #000; text-decoration: underline">${this.footnoteId} </span> </p>`)
+        $originalEle.replaceWith(`${$originalEle.text()} <span style="font-size: 75%; vertical-align: top; color: #000; text-decoration: underline">${this.footnoteId} </span>`)
         const href = $originalEle.attr('href')
         // appends tags to left footer
         $footerLeft.find('.resources').append(`<a class="tiny-h-font small-h-font medium-h-font" href="${href}" title="${href}" target="_blank"><span style="font-size: 75%; vertical-align: top; color: #000">${this.footnoteId} </span>${href}</a>`)
@@ -209,13 +209,18 @@ class BuildPage {
     // add revision history
     this.state.revisionHistory = [this.addRevisionHistory({REPO_URL: config.REPO_URL})]
 
-    // add heading
+    // heading
     this.state.pageHeading = this.createPageHeading({HEADING: config.TITLE, COMPANY_NAME: config.COMPANY_NAME})
-    this.state.introduction = this.state.introduction.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
-    this.state.mainContent = this.state.mainContent.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
+
+    // add revision history
     this.state.revisionHistory = this.state.revisionHistory.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
 
+    // create introduction
+    this.state.introduction = this.state.introduction.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
+    this.state.introduction = this.addPageFooter(this.state.introduction)
+
     // create main content section
+    this.state.mainContent = this.state.mainContent.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
     this.state.mainContent = this.addPageNumberToElements(this.state.mainContent)
     this.state.mainContent = this.numberHeadings(this.state.mainContent)
     this.state.mainContent = this.addPageFooter(this.state.mainContent)
@@ -224,10 +229,10 @@ class BuildPage {
 
     // create table of contents
     this.state.tableOfContents = [this.createTableOfContents(this.state.mainContent)]
-
-    this.state.introduction = this.addPageFooter(this.state.introduction)
+    this.state.tableOfContents = this.state.tableOfContents.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
     this.state.tableOfContents = this.addPageFooter(this.state.tableOfContents)
 
+    // add title
     this.addTitle(this.state.config.TITLE)
 
     cb()

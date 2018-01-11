@@ -36,7 +36,7 @@
           <div id="page-actual">
             <b-col
               v-for="(hp, ind) in headingPage"
-              class="page heading"
+              class="page heading medium-font small-font tiny-font"
               :class="'heading-' + ind"
               :key="'heading-' + ind"
               v-html="hp"
@@ -44,7 +44,7 @@
             </b-col>
             <b-col
               v-for="(ip, ind) in introductionPage"
-              class="page introduction"
+              class="page introduction medium-font small-font tiny-font"
               :class="'introduction-' + ind"
               :key="'introduction-' + ind"
               v-html="ip"
@@ -52,7 +52,7 @@
             </b-col>
             <b-col
               v-for="(rp, ind) in revisionHistoryPage"
-              class="page revision"
+              class="page revision medium-font small-font tiny-font"
               :class="'revision-' + ind"
               :key="'revision-' + ind"
               v-html="rp"
@@ -60,7 +60,7 @@
             </b-col>
             <b-col
               v-for="(tp, ind) in tableOfContentsPage"
-              class="page table-of-contents"
+              class="page table-of-contents medium-font small-font tiny-font"
               :class="'table-of-contents-' + ind"
               :key="'table-of-contents-' + ind"
               v-html="tp"
@@ -68,7 +68,7 @@
             </b-col>
             <b-col
               v-for="(mp, ind) in mainContent"
-              class="page main-content"
+              class="page main-content medium-font small-font tiny-font"
               :class="'page-' + ind"
               :key="'page:' + ind"
               v-html="mp"
@@ -220,6 +220,11 @@
           const hTags = $('h1, h2, h3, h4')
           hTags.each(function () {
             $(this).attr('class', 'tiny-h-font small-h-font medium-h-font')
+          })
+
+          const strongTags = $('strong')
+          strongTags.each(function () {
+            $(this).attr('class', 'tiny-strong-font small-strong-font medium-strong-font')
           })
 
           /*
