@@ -11,7 +11,9 @@
         </div>
         <div class="column-11 w-col w-col-4 w-hidden-tiny tiny-font small-font medium-font">
           <a href="https://www.youtube.com/channel/UCkaB2u7zG4uSCL5Hws3X1jw" class="navigation-link w-nav-link white" target="_blank">YouTube</a>
-          <a href="#" @click="scrollToEle('#contact-section')" class="navigation-link w-nav-link white">Contact</a></div>
+          <a href="#" @click="scrollToEle('#contact-section')" class="navigation-link w-nav-link white">Contact</a>
+          <a href="http://jwweatherman.com/bitcoinVillains/wiki" class="navigation-link w-nav-link white">Bitcoin Villains Wiki</a>
+        </div>
         <div class="column-6 w-col w-col-1"><a href="#" class="w-nav-link"></a>
           <div class="icon w-icon-nav-menu"></div>
           <nav role="navigation" class="navigation-menu w-nav-menu"></nav>

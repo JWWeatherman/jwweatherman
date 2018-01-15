@@ -689,6 +689,10 @@
   padding-bottom: 50px;
 }
 
+#home .footer a {
+  color: #fff!important;
+}
+
 #home .footer.center {
   text-align: center;
 }
