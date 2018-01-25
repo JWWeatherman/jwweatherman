@@ -5,9 +5,11 @@
   "author": "JWWeatherman <jw@jwweatherman.com>",
   "private": true,
   "scripts": {
-    "proxy": "cd server && npm run dev",
-    "dev": "node build/dev-server.js & npm run proxy &",
-    "build": "node build/build.js && babel server -d dist",
+    "startServer": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
+    "buildServer": "babel lib -d dist --presets es2015,stage-2",
+    "serve": "node dist/index.js",
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js && npm run buildServer",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs"
