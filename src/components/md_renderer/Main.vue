@@ -87,24 +87,33 @@
   import Social from './Social'
   import RightBar from './RightBar'
   import utils from './services/utils'
-  import MdState from './services/MdState'
+  // import MdState from './services/MdState'
+
+  import axios from 'axios'
 
   export default {
     name: 'Main',
     beforeMount () {
-      utils.watcher(() => {
-        return !Object.keys(this.configs).length
-      }, () => {
-        const location = window.location.href
-        this.threatModel = location.split('/#/')[1].split('#')[0]
-        const config = this.configs[this.threatModel]
-        if (config) {
-          //        console.log(config)
-          this.mdState = new MdState({config: config}, this.processPages)
-        } else {
-          this.$router.push('/')
-        }
-      })
+      const location = window.location.href
+      this.threatModel = location.split('/#/')[1].split('#')[0]
+      axios.get('/api/getConfig/' + this.threatModel)
+        .then(res => {
+          console.log(res.data.TM_CONFIG)
+        })
+        .catch(console.error)
+      // utils.watcher(() => {
+      //   return !Object.keys(this.configs).length
+      // }, () => {
+      //   const location = window.location.href
+      //   this.threatModel = location.split('/#/')[1].split('#')[0]
+      //   const config = this.configs[this.threatModel]
+      //   if (config) {
+      //     //        console.log(config)
+      //     this.mdState = new MdState({config: config}, this.processPages)
+      //   } else {
+      //     this.$router.push('/')
+      //   }
+      // })
     },
     data () {
       return {

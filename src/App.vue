@@ -5,26 +5,28 @@
 </template>
 
 <script>
-  import ConfigGen from '@/services/ConfigGen'
-
-  import ProcessVideos from '@/services/ProcessVideos'
-  import ProcessDocuments from '@/services/ProcessDocuments'
+  import axios from 'axios'
 
   export default {
     beforeMount () {
       /*
-      * gets all the threat model configs and stores them in the store.
+      * gets all the threat model configs and videos
       * */
-      const configGen = new ConfigGen({store: this.$store, configsUrl: 'https://api.github.com/repos/JWWeatherman/published_threat_models/contents/configs.json'})
-      configGen.getConfigs((configs) => {
-        const processVideos = new ProcessVideos({store: this.$store})
-        processVideos.process()
-        if (configs) {
-          this.$store.dispatch('updateDocumentConfigs', configs)
-          const processDocuments = new ProcessDocuments({store: this.$store})
-          setTimeout(() => processDocuments.process(), 500)
-        }
-      })
+
+      axios.all([
+        axios.get('/api/getConfigs'),
+        axios.get('/api/getVideos')
+      ])
+        .then(axios.spread((res1, res2) => {
+          const tmConfigs = res1.data
+          const videos = res2.data
+          this.$store.dispatch('updateDocumentConfigs', tmConfigs)
+          tmConfigs.forEach(config => this.$store.dispatch('updateDocParts', config.TEMPLATE))
+          videos.forEach(vid => this.$store.dispatch('updateVidParts', vid.TEMPLATE))
+        }))
+        .catch(error => {
+          console.log(error)
+        })
     },
     name: 'app'
   }

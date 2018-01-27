@@ -7,7 +7,7 @@ Vue.use(VueResource)
 
 export default new Vuex.Store({
   state: {
-    documentConfigs: {},
+    documentConfigs: [],
     docParts: [],
     vidParts: []
   },
