@@ -96,24 +96,11 @@
     beforeMount () {
       const location = window.location.href
       this.threatModel = location.split('/#/')[1].split('#')[0]
-      axios.get('/api/getConfig/' + this.threatModel)
+      axios.get('/api/getTm/' + this.threatModel)
         .then(res => {
-          console.log(res.data.TM_CONFIG)
+          console.log(res.data)
         })
         .catch(console.error)
-      // utils.watcher(() => {
-      //   return !Object.keys(this.configs).length
-      // }, () => {
-      //   const location = window.location.href
-      //   this.threatModel = location.split('/#/')[1].split('#')[0]
-      //   const config = this.configs[this.threatModel]
-      //   if (config) {
-      //     //        console.log(config)
-      //     this.mdState = new MdState({config: config}, this.processPages)
-      //   } else {
-      //     this.$router.push('/')
-      //   }
-      // })
     },
     data () {
       return {

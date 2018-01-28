@@ -30,6 +30,7 @@
     "jquery": "^3.2.1",
     "jquery.appear": "^1.0.1",
     "js-base64": "^2.4.0",
+    "jsdom": "^11.6.1",
     "mark.js": "^8.11.0",
     "marked": "^0.3.9",
     "moment": "^2.20.1",
