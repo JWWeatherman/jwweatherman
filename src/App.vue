@@ -15,13 +15,20 @@
       /*
       * gets all the threat model configs and videos
       * */
-
+      const clientId = process.env.API_CLIENT_ID || keys.api.clientId
+      const secret = process.env.API_SECRET || keys.api.secret
       axios.all([
         axios.get('/api/getConfigs', {
-          headers: keys.api
+          headers: {
+            clientid: clientId,
+            secret: secret
+          }
         }),
         axios.get('/api/getVideos/5', {
-          headers: keys.api
+          headers: {
+            clientid: clientId,
+            secret: secret
+          }
         })
       ])
         .then(axios.spread((res1, res2) => {

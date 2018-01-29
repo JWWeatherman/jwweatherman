@@ -93,8 +93,13 @@
     beforeMount () {
       const location = window.location.href
       this.threatModel = location.split('/#/')[1].split('#')[0]
+      const clientId = process.env.API_CLIENT_ID || keys.api.clientId
+      const secret = process.env.API_SECRET || keys.api.secret
       axios.get('/api/getConfig/' + this.threatModel, {
-        headers: keys.api
+        headers: {
+          clientid: clientId,
+          secret: secret
+        }
       })
         .then(res => {
           this.pageConfig = res.data

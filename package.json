@@ -12,8 +12,7 @@
     "build": "node build/build.js && npm run buildServer",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "start": "npm install "
+    "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
