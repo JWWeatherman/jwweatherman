@@ -1,29 +1,24 @@
-import buildPage from './BuildPage'
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import base64 from 'js-base64'
 import marked from 'marked'
 
 Vue.use(VueResource)
 
 class MdState {
-  constructor ({config}, cb) {
-    this.config = config
-    this.initializeState(cb)
+  state = {
+    headingPage: [],
+    introduction: [],
+    mainContent: [],
+    revisionHistory: [],
+    tableOfContents: [],
+    pageHeading: '',
+    headingPageHeading: '',
+    heading: '',
+    scrollPosition: 0,
+    pageNumber: 0,
+    introEnd: 0,
+    style: {}
   }
-
-  headingPage = []
-  introduction = []
-  mainContent = []
-  revisionHistory = []
-  tableOfContents = []
-
-  pageHeading = ``
-  headingPageHeading = ``
-  heading = ``
-  scrollPosition = 0
-  pageNumber = 0
-  introEnd = 0
 
   /*
   * */
@@ -88,20 +83,12 @@ class MdState {
     return list.map(l => marked(l, { sanitize: true }))
   }
 
-  initializeState (cb) {
-    Vue.http.get(this.config.REPO_URL)
-      .then(res => {
-        const b64 = base64.Base64
-        const blob = res.body.content
-        const allMd = b64.decode(blob)
-        const sections = this.createPages(allMd)
-        this.headingPage = sections.headingPage
-        this.introduction = sections.introduction
-        this.mainContent = sections.mainContent
-        // console.log(sections)
-        buildPage({state: this}, cb)
-      })
-      .catch(err => console.error(err))
+  initializeState (config) {
+    const sections = this.createPages(config.TM_MARKDOWN)
+    this.state.style = config.STYLE
+    this.state.headingPage = sections.headingPage
+    this.state.introduction = sections.introduction
+    this.state.mainContent = sections.mainContent
   }
 }
 
