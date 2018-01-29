@@ -6,5 +6,9 @@ module.exports = {
   api: {
     clientId: '',
     secret: ''
+  },
+  youtube: {
+    channelId: '',
+    key: ''
   }
 }
