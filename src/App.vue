@@ -5,26 +5,43 @@
 </template>
 
 <script>
-  import ConfigGen from '@/services/ConfigGen'
-
-  import ProcessVideos from '@/services/ProcessVideos'
-  import ProcessDocuments from '@/services/ProcessDocuments'
+  import axios from 'axios'
+  import images from './assets/images'
+  import animations from './services/animations'
+  import keys from '../keys'
 
   export default {
     beforeMount () {
       /*
-      * gets all the threat model configs and stores them in the store.
+      * gets all the threat model configs and videos
       * */
-      const configGen = new ConfigGen({store: this.$store, configsUrl: 'https://api.github.com/repos/JWWeatherman/published_threat_models/contents/configs.json'})
-      configGen.getConfigs((configs) => {
-        const processVideos = new ProcessVideos({store: this.$store})
-        processVideos.process()
-        if (configs) {
-          this.$store.dispatch('updateDocumentConfigs', configs)
-          const processDocuments = new ProcessDocuments({store: this.$store})
-          setTimeout(() => processDocuments.process(), 500)
-        }
-      })
+
+      axios.all([
+        axios.get('/api/getConfigs', {
+          headers: keys.api
+        }),
+        axios.get('/api/getVideos/5', {
+          headers: keys.api
+        })
+      ])
+        .then(axios.spread((res1, res2) => {
+          const tmConfigs = res1.data
+          const videos = res2.data
+          this.$store.dispatch('updateDocumentConfigs', tmConfigs)
+          tmConfigs.forEach(config => this.$store.dispatch('updateDocParts', config.LIST_TEMPLATE))
+          videos.forEach(vid => this.$store.dispatch('updateVidParts', vid.TEMPLATE))
+        }))
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    data () {
+      return {
+        images: images
+      }
+    },
+    methods: {
+      scrollToEle: animations.scrollToEle
     },
     name: 'app'
   }

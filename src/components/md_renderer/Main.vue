@@ -1,5 +1,5 @@
 <template>
-    <div id="md-app" class="text-center fadeIn" v-if="mdState !== null">
+    <div id="md-app" class="text-center fadeIn" v-if="builtPage !== null">
       <b-alert :show="dismissCountDown"
                dismissible
                :variant="copyStatus"
@@ -21,7 +21,7 @@
               @click="scrollToo(id)"
             >
               <Social
-                :state="mdState"
+                :config="pageConfig"
                 :id="id"
               ></Social>
               <span>
@@ -76,10 +76,7 @@
           </div>
         </div>
         <text id="clipboardTextDummy"></text>
-        <RightBar
-          :threatModel="threatModel"
-          :state="mdState"
-        ></RightBar>
+        <RightBar :threatModel="threatModel"></RightBar>
       </div>
     </div>
 </template>
@@ -87,28 +84,32 @@
   import Social from './Social'
   import RightBar from './RightBar'
   import utils from './services/utils'
-  import MdState from './services/MdState'
+  import BuildPage from './services/BuildPage'
+  import keys from '../../../keys'
+  import axios from 'axios'
 
   export default {
     name: 'Main',
     beforeMount () {
-      utils.watcher(() => {
-        return !Object.keys(this.configs).length
-      }, () => {
-        const location = window.location.href
-        this.threatModel = location.split('/#/')[1].split('#')[0]
-        const config = this.configs[this.threatModel]
-        if (config) {
-          //        console.log(config)
-          this.mdState = new MdState({config: config}, this.processPages)
-        } else {
-          this.$router.push('/')
-        }
+      const location = window.location.href
+      this.threatModel = location.split('/#/')[1].split('#')[0]
+      axios.get('/api/getConfig/' + this.threatModel, {
+        headers: keys.api
       })
+        .then(res => {
+          this.pageConfig = res.data
+          const buildPage = new BuildPage(this.pageConfig)
+          buildPage.init((built) => {
+            this.builtPage = built
+            this.processPages()
+          })
+        })
+        .catch(console.error)
     },
     data () {
       return {
-        mdState: null,
+        pageConfig: null,
+        builtPage: null,
         popoverOpen: false,
         hTagIds: [],
         clipboardLink: '',
@@ -127,19 +128,19 @@
         return this.$store.getters.getDocumentConfigs
       },
       headingPage () {
-        return this.mdState.headingPage
+        return this.builtPage.headingPage
       },
       introductionPage () {
-        return this.mdState.introduction
+        return this.builtPage.introduction
       },
       revisionHistoryPage () {
-        return this.mdState.revisionHistory
+        return this.builtPage.revisionHistory
       },
       tableOfContentsPage () {
-        return this.mdState.tableOfContents
+        return this.builtPage.tableOfContents
       },
       mainContent () {
-        return this.mdState.mainContent
+        return this.builtPage.mainContent
       }
     },
     methods: {

@@ -1,25 +1,20 @@
 <template>
   <div class="fixed-image-section">
     <img class="starry-background-image" :src="starryNight" alt="Starry background...">
-    <div data-collapse="medium" data-animation="default" data-duration="400" class="dark navigation-bar w-nav">
-      <div class="row-7 w-row">
-        <div class="column-7 w-col w-col-1"><img :src="images.chewie" width="65" class="image-3"></div>
-        <div class="column-8 w-col w-col-6">
-          <a href="index.html" class="brand-link left-spacing w-nav-brand">
-            <h1 class="brand-text tiny-font small-font medium-font">J.W. Weatherman</h1>
-          </a>
-        </div>
-        <div class="column-11 w-col w-col-4 w-hidden-tiny tiny-font small-font medium-font">
-          <a href="https://www.youtube.com/channel/UCkaB2u7zG4uSCL5Hws3X1jw" class="navigation-link w-nav-link white" target="_blank">YouTube</a>
-          <a href="#" @click="scrollToEle('#contact-section')" class="navigation-link w-nav-link white">Contact</a>
-          <a href="http://jwweatherman.com/bitcoinVillains/wiki" class="navigation-link w-nav-link white">Bitcoin Villains Wiki</a>
-        </div>
-        <div class="column-6 w-col w-col-1"><a href="#" class="w-nav-link"></a>
-          <div class="icon w-icon-nav-menu"></div>
-          <nav role="navigation" class="navigation-menu w-nav-menu"></nav>
-        </div>
-      </div>
-    </div>
+    <nav class="navbar navbar-expand-lg text-white">
+      <a @click="scrollToEle('#app')" class="navbar-brand tiny-font small-font medium-font" href="#"><img :src="images.chewie" width="65" class="image-3"/><span>J.W. Weatherman</span></a>
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a href="https://www.youtube.com/channel/UCkaB2u7zG4uSCL5Hws3X1jw" class="nav-link w-nav-link text-white tiny-font small-font medium-font" target="_blank">YouTube</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" @click="scrollToEle('#contact-section')" class="nav-link w-nav-link text-white tiny-font small-font medium-font">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="http://darksidebtc.com" class="nav-link w-nav-link text-white tiny-font small-font medium-font" target="_blank">Darkside</a>
+        </li>
+      </ul>
+    </nav>
     <div class="w-container">
       <h1 class="page-heading">Bitcoin. Economics. Government.</h1>
       <div class="row-5 w-row">
@@ -34,6 +29,7 @@
 <script>
   import animations from '../services/animations'
   import images from '../assets/images'
+
   export default {
     mounted () {
       this.adjustBackgroundImage()

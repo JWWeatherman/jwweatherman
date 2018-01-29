@@ -53,18 +53,18 @@
         return utils.makeTitle(this.title, subTitle === 'Bitcoin Security Threat Model' ? '' : subTitle)
       },
       description () {
-        return this.state.config.DESCRIPTION
+        return this.config.DESCRIPTION
       },
       title () {
-        return this.state.config.TITLE
+        return this.config.TITLE
       },
       quote () {
-        return this.state.config.QUOTE
+        return this.config.QUOTE
       },
       hashTags () {
-        return this.state.config.HASHTAGS
+        return this.config.HASHTAGS
       }
     },
-    props: ['id', 'state']
+    props: ['id', 'config']
   }
 </script>

@@ -1,17 +1,21 @@
+import MdState from './MdState'
+
 import { _ } from 'underscore'
 import toc from './toc'
 
-class BuildPage {
-  constructor () {
-    this.state = null
+class BuildPage extends MdState {
+  constructor (config) {
+    super()
     this.footnoteId = 1
+    this.config = config
+    this.initializeState(config)
   }
 
   /*
   * apply threat model styles
   * */
   applyStyles () {
-    const styles = this.state.config.STYLE
+    const styles = this.state.style
     _.mapObject(styles, (style, name) => {
       document.documentElement.style.setProperty(`--${name}`, style)
     })
@@ -112,14 +116,15 @@ class BuildPage {
       const $page = $(page)
       const $footerLeft = $page.last().find('.footer-left')
       $footerLeft.append('<div class="resources"></div>')
-      $page.find('a').slice(0, this.state.config.REDDIT_LINK_WANTED ? -1 : 100).each((_, ele) => {
-        const $originalEle = $(ele)
-        $originalEle.replaceWith(`${$originalEle.text()} <span style="font-size: 75%; vertical-align: top; color: #000; text-decoration: underline">${this.footnoteId} </span>`)
+      const dis = this
+      $page.find('a').each(function () {
+        const $originalEle = $(this)
+        $originalEle.replaceWith(`${$originalEle.text()} <span style="font-size: 75%; vertical-align: top; color: #000; text-decoration: underline">${dis.footnoteId} </span>`)
         const href = $originalEle.attr('href')
         // appends tags to left footer
-        $footerLeft.find('.resources').append(`<a class="tiny-h-font small-h-font medium-h-font" href="${href}" title="${href}" target="_blank"><span style="font-size: 75%; vertical-align: top; color: #000">${this.footnoteId} </span>${href}</a>`)
+        $footerLeft.find('.resources').append(`<a class="tiny-h-font small-h-font medium-h-font" href="${href}" title="${href}" target="_blank"><span style="font-size: 75%; vertical-align: top; color: #000">${dis.footnoteId} </span>${href}</a>`)
         $footerLeft.find('.resources').prepend('<div style="border-top: 0.25px solid #000; width: 30%"></div>')
-        this.footnoteId++
+        dis.footnoteId++
       })
       return $('<div>').append($page).remove().html()
     })
@@ -197,20 +202,17 @@ class BuildPage {
     return $('<div>').append($toc).remove().html()
   }
 
-  init ({state}, cb) {
-    this.state = state
-    const config = state.config
-
+  init (cb) {
     this.applyStyles()
 
     // add heading page header (jumbotron)
-    this.appendHeadingPageHeader(this.createHeadingPageHeading({COMPANY_NAME: config.COMPANY_NAME, PUBLISH_DATE: config.PUBLISH_DATE}))
+    this.appendHeadingPageHeader(this.createHeadingPageHeading({COMPANY_NAME: this.config.COMPANY_NAME, PUBLISH_DATE: this.config.PUBLISH_DATE}))
 
     // add revision history
-    this.state.revisionHistory = [this.addRevisionHistory({REPO_URL: config.REPO_URL})]
+    this.state.revisionHistory = [this.addRevisionHistory({REPO_URL: this.config.REPO_URL})]
 
     // heading
-    this.state.pageHeading = this.createPageHeading({HEADING: config.TITLE, COMPANY_NAME: config.COMPANY_NAME})
+    this.state.pageHeading = this.createPageHeading({HEADING: this.config.TITLE, COMPANY_NAME: this.config.COMPANY_NAME})
 
     // add revision history
     this.state.revisionHistory = this.state.revisionHistory.map(page => this.appendPageHeader({page: page, heading: this.state.pageHeading}))
@@ -233,11 +235,10 @@ class BuildPage {
     this.state.tableOfContents = this.addPageFooter(this.state.tableOfContents)
 
     // add title
-    this.addTitle(this.state.config.TITLE)
+    this.addTitle(this.config.TITLE)
 
-    cb()
+    cb(this.state)
   }
 }
 
-const buildPage = new BuildPage()
-export default buildPage.init.bind(buildPage)
+export default BuildPage
