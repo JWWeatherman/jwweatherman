@@ -11,6 +11,7 @@ export default {
     '152': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_152/v1510257592/chewie_365_nz7hew.png',
     '180': 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_180/v1510257592/chewie_365_nz7hew.png'
   },
+  smallChewieBlack: 'http://res.cloudinary.com/doohickey/image/upload/c_scale,w_25/v1516054598/chewie_350_black_ui9bap.png',
   chewie: 'http://res.cloudinary.com/doohickey/image/upload/v1510257592/chewie_365_nz7hew.png',
   blurs: {
     starryNight: 'data:image/png;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAUCBgMECP/EACgQAAEEAQMCBQUAAAAAAAAAAAEAAgMRBAUSITFhBkFRcaETIoGxwf/EABcBAQEBAQAAAAAAAAAAAAAAAAIDAQT/xAAaEQADAAMBAAAAAAAAAAAAAAAAAQIDERIT/9oADAMBAAIRAxEAPwDzs3Hma41dHk10KyhDocrdC4kh9jirC2CTE29AAF05McF32g+9LpcaIqtkjUPqule51BxNGh5qU5rgVujsJuThuAa3c03fqpE2m7SALvujUMSpGvlpJ/aKxJgOHNeyIcMXRQf4rxyBUE3TsP6uSHxDp0zg14ljPq5tj4RElmozzRYwtV06B1vktvmNrufhTdU13AjmOwueD0AYeB+UROsr0BQtkiXXsewWRyOPegiIo+lFOUf/2Q==',

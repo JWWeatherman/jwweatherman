@@ -9,12 +9,19 @@ export default {
   scrollToEle (context, ele) {
     const $ele = $(ele)
     $('html, body').animate({
-      scrollTop: $ele.offset().top - 110
+      scrollTop: $ele.offset().top - 10
     }, 2000, () => {
       context.$router.push(ele)
     })
   },
   scrollTop (context) {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 1500, () => {
+      context.$router.push('/' + context.threatModel)
+    })
+  },
+  scrollTableContents (context) {
     $('html, body').animate({
       scrollTop: $('.table-of-contents').offset().top
     }, 1500, () => {
