@@ -8,28 +8,15 @@
   import axios from 'axios'
   import images from './assets/images'
   import animations from './services/animations'
-  import keys from '../keys'
 
   export default {
     beforeMount () {
       /*
       * gets all the threat model configs and videos
       * */
-      const clientId = process.env.API_CLIENT_ID || keys.api.clientId
-      const secret = process.env.API_SECRET || keys.api.secret
       axios.all([
-        axios.get('/api/getConfigs', {
-          headers: {
-            clientid: clientId,
-            secret: secret
-          }
-        }),
-        axios.get('/api/getVideos/5', {
-          headers: {
-            clientid: clientId,
-            secret: secret
-          }
-        })
+        axios.get('/api/getConfigs'),
+        axios.get('/api/getVideos/5')
       ])
         .then(axios.spread((res1, res2) => {
           const tmConfigs = res1.data

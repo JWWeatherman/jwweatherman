@@ -346,4 +346,11 @@
   margin-top: 10px!important;
   cursor: pointer;
 }
+
+#md-app .right-bar button:last-child {
+  background-image: url("http://res.cloudinary.com/doohickey/image/upload/c_scale,w_100/v1516054598/chewie_350_black_ui9bap.png")!important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
 /*Social.vue*/
