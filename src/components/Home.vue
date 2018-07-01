@@ -1,6 +1,7 @@
 <template>
     <div id="home" class="animated fadeIn">
       <top-section></top-section>
+      <events-section></events-section>
       <doc-section></doc-section>
       <video-section></video-section>
       <contact-section></contact-section>
@@ -8,6 +9,7 @@
     </div>
 </template>
 <script>
+  import EventsSection from '@/components/EventsSection'
   import TopSection from '@/components/TopSection'
   import DocSection from '@/components/DocSection'
   import VideoSection from '@/components/VideoSection'
@@ -49,7 +51,8 @@
       DocSection,
       VideoSection,
       FooterSection,
-      ContactSection
+      ContactSection,
+      EventsSection
     }
   }
 </script>
