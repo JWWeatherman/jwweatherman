@@ -7,7 +7,7 @@
   "scripts": {
     "startServer": "nodemon lib/index.js --exec babel-node --presets es2015,stage-2",
     "buildServer": "babel lib -d dist --presets es2015,stage-2",
-    "serve": "node dist/index.js",
+    "start": "node dist/index.js",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js && npm run buildServer",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
@@ -26,7 +26,6 @@
     "cheerio": "^1.0.0-rc.2",
     "cors": "^2.8.4",
     "ddos": "^0.1.25",
-    "electron": "^1.8.2-beta.4",
     "font-awesome": "^4.7.0",
     "fs": "0.0.1-security",
     "hide-on-scroll": "^0.1.0",
