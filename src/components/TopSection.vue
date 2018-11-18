@@ -13,6 +13,9 @@
         <li class="nav-item">
           <a href="http://darksidebtc.com" class="nav-link w-nav-link text-white tiny-font small-font medium-font" target="_blank">Darkside</a>
         </li>
+	<li>
+	  <a href="/course" class="nav-link w-nav-link text-white tiny-font small-font medium-font" target="_blank">Course</a>
+        </li>
       </ul>
     </nav>
     <div class="w-container">
